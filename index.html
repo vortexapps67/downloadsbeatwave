@@ -733,6 +733,103 @@
       background: #000000;
       border: 1px solid #ffffff;
     }
+
+    /* FAQ morphing rules */
+    .theme-glass #faq-section-title {
+      font-family: 'Outfit', sans-serif;
+      color: #ffffff;
+      font-weight: 800;
+    }
+    .theme-brutal #faq-section-title {
+      background: #06b6d4;
+      color: #ffffff;
+      border: 4px solid #000000;
+      box-shadow: 4px 4px 0px 0px #000000;
+      padding: 0.5rem 1.25rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      display: inline-block;
+      transform: rotate(-1deg);
+    }
+    
+    .theme-glass #faq-section-desc {
+      color: rgba(255, 255, 255, 0.4);
+    }
+    .theme-brutal #faq-section-desc {
+      color: #000000;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-top: 1rem;
+    }
+
+    .theme-glass .faq-card {
+      background: rgba(15, 17, 34, 0.3);
+      backdrop-filter: blur(14px) saturate(170%);
+      -webkit-backdrop-filter: blur(14px) saturate(170%);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+    }
+    .theme-glass .faq-card:hover {
+      background: rgba(25, 28, 52, 0.45);
+      border-color: rgba(168, 85, 247, 0.35);
+    }
+    
+    .theme-brutal .faq-card {
+      background: #ffffff;
+      border: 4px solid #000000;
+      box-shadow: 8px 8px 0px 0px #000000;
+      border-radius: 20px;
+      transition: all 0.15s ease-out;
+    }
+    .theme-brutal .faq-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 10px 10px 0px 0px #000000;
+    }
+
+    .theme-glass .faq-btn {
+      color: rgba(255, 255, 255, 0.9);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+    }
+    .theme-brutal .faq-btn {
+      color: #000000;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .theme-glass .faq-answer {
+      color: rgba(255, 255, 255, 0.6);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.01);
+    }
+    .theme-brutal .faq-answer {
+      color: #000000;
+      font-family: 'Space Mono', monospace;
+      font-weight: 500;
+      border-top: 4px solid #000000;
+      background: #ffffff;
+    }
+
+    .theme-glass .faq-icon-brutal {
+      display: none;
+    }
+    .theme-glass .faq-icon-glass {
+      display: inline-block;
+    }
+    
+    .theme-brutal .faq-icon-brutal {
+      display: inline-block;
+      box-shadow: 2px 2px 0px 0px #000000;
+    }
+    .theme-brutal .faq-icon-glass {
+      display: none;
+    }
   </style>
 </head>
 <body id="app-body" class="theme-brutal transition-theme min-h-screen overflow-x-hidden relative p-0 m-0 pb-12">
@@ -865,6 +962,88 @@
         <div class="col-span-full flex flex-col items-center justify-center py-20 text-white/40">
           <i class="fa-solid fa-circle-notch animate-spin text-3xl mb-4 text-purple-400"></i>
           <p>Fetching download records...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq-section" class="transition-theme mt-16 p-0">
+      <div class="mb-10 text-left">
+        <h3 id="faq-section-title" class="transition-theme text-xl sm:text-3xl font-extrabold tracking-tight">
+          Frequently Asked Questions
+        </h3>
+        <p id="faq-section-desc" class="transition-theme text-xs sm:text-sm mt-2">Troubleshoot your installation and understand how BeatWave works.</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Q1 -->
+        <div class="faq-card transition-theme rounded-2xl overflow-hidden">
+          <button onclick="toggleFAQ(1)" class="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-black/[0.02] transition duration-300">
+            <span class="faq-btn transition-theme text-sm sm:text-base">Is the APK safe to install?</span>
+            <span class="flex items-center">
+              <i id="faq-icon-glass-1" class="faq-icon-glass fa-solid fa-plus text-purple-400 text-sm transition-transform duration-300"></i>
+              <span id="faq-icon-brutal-1" class="faq-icon-brutal transition-theme bg-[#ec4899] text-white font-mono font-bold px-3 py-1 border-2 border-black rounded text-xs">OPEN</span>
+            </span>
+          </button>
+          <div id="faq-answer-1" class="faq-answer transition-theme hidden p-6 text-xs sm:text-sm leading-relaxed uppercase">
+            Yes, absolutely. BeatWave is fully open-source and free of ads, tracking trackers, or telemetry SDKs. The app is offline-first, meaning your playback history, cached tracks, and library details remain strictly on your local device.
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="faq-card transition-theme rounded-2xl overflow-hidden">
+          <button onclick="toggleFAQ(2)" class="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-black/[0.02] transition duration-300">
+            <span class="faq-btn transition-theme text-sm sm:text-base">Why does BeatWave need Storage and Media permissions?</span>
+            <span class="flex items-center">
+              <i id="faq-icon-glass-2" class="faq-icon-glass fa-solid fa-plus text-purple-400 text-sm transition-transform duration-300"></i>
+              <span id="faq-icon-brutal-2" class="faq-icon-brutal transition-theme bg-[#ec4899] text-white font-mono font-bold px-3 py-1 border-2 border-black rounded text-xs">OPEN</span>
+            </span>
+          </button>
+          <div id="faq-answer-2" class="faq-answer transition-theme hidden p-6 text-xs sm:text-sm leading-relaxed uppercase">
+            BeatWave requires read access to your device's storage (<code>READ_EXTERNAL_STORAGE</code> or <code>READ_MEDIA_AUDIO</code> on Android 13+) in order to scan and index your local audio files (MP3, FLAC, WAV, etc.) into the app library. We never access your photos, videos, or personal files.
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="faq-card transition-theme rounded-2xl overflow-hidden">
+          <button onclick="toggleFAQ(3)" class="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-black/[0.02] transition duration-300">
+            <span class="faq-btn transition-theme text-sm sm:text-base">What is 'Listen Together' mode?</span>
+            <span class="flex items-center">
+              <i id="faq-icon-glass-3" class="faq-icon-glass fa-solid fa-plus text-purple-400 text-sm transition-transform duration-300"></i>
+              <span id="faq-icon-brutal-3" class="faq-icon-brutal transition-theme bg-[#ec4899] text-white font-mono font-bold px-3 py-1 border-2 border-black rounded text-xs">OPEN</span>
+            </span>
+          </button>
+          <div id="faq-answer-3" class="faq-answer transition-theme hidden p-6 text-xs sm:text-sm leading-relaxed uppercase">
+            Listen Together is a feature that allows you to synchronize your music queue and playback controls in real-time with friends on the same Wi-Fi network. It utilizes Android's Network Service Discovery (mDNS) to link local instances peer-to-peer without sending queries through a cloud relay.
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="faq-card transition-theme rounded-2xl overflow-hidden">
+          <button onclick="toggleFAQ(4)" class="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-black/[0.02] transition duration-300">
+            <span class="faq-btn transition-theme text-sm sm:text-base">How do I install the APK file on my device?</span>
+            <span class="flex items-center">
+              <i id="faq-icon-glass-4" class="faq-icon-glass fa-solid fa-plus text-purple-400 text-sm transition-transform duration-300"></i>
+              <span id="faq-icon-brutal-4" class="faq-icon-brutal transition-theme bg-[#ec4899] text-white font-mono font-bold px-3 py-1 border-2 border-black rounded text-xs">OPEN</span>
+            </span>
+          </button>
+          <div id="faq-answer-4" class="faq-answer transition-theme hidden p-6 text-xs sm:text-sm leading-relaxed uppercase">
+            Click the "Get APK" download button to fetch the file. Once downloaded, open it from your browser or file manager. If prompted, toggle "Allow installation from unknown sources" in your Android system security settings to complete the setup.
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="faq-card transition-theme rounded-2xl overflow-hidden">
+          <button onclick="toggleFAQ(5)" class="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-black/[0.02] transition duration-300">
+            <span class="faq-btn transition-theme text-sm sm:text-base">Does the player support Lossless Audio playback?</span>
+            <span class="flex items-center">
+              <i id="faq-icon-glass-5" class="faq-icon-glass fa-solid fa-plus text-purple-400 text-sm transition-transform duration-300"></i>
+              <span id="faq-icon-brutal-5" class="faq-icon-brutal transition-theme bg-[#ec4899] text-white font-mono font-bold px-3 py-1 border-2 border-black rounded text-xs">OPEN</span>
+            </span>
+          </button>
+          <div id="faq-answer-5" class="faq-answer transition-theme hidden p-6 text-xs sm:text-sm leading-relaxed uppercase">
+            Yes! Powered by Jetpack Media3 core APIs, BeatWave natively parses and decodes lossless formats like FLAC and WAV alongside standard compressed files, guaranteeing full-fidelity playback.
+          </div>
         </div>
       </div>
     </section>
@@ -1243,6 +1422,32 @@
       }
       
       requestAnimationFrame(update);
+    }
+
+    // FAQ Toggle Function
+    function toggleFAQ(num) {
+      const answer = document.getElementById(`faq-answer-${num}`);
+      const glassIcon = document.getElementById(`faq-icon-glass-${num}`);
+      const brutalIcon = document.getElementById(`faq-icon-brutal-${num}`);
+      
+      if (answer) {
+        const isHidden = answer.classList.contains('hidden');
+        if (isHidden) {
+          answer.classList.remove('hidden');
+          if (glassIcon) glassIcon.className = "faq-icon-glass fa-solid fa-minus text-cyan-400 text-sm transition-transform duration-300 rotate-180";
+          if (brutalIcon) {
+            brutalIcon.innerText = "CLOSE";
+            brutalIcon.className = "faq-icon-brutal transition-theme bg-[#f87171] text-black font-mono font-bold px-3 py-1 border-2 border-black rounded text-xs transition duration-300";
+          }
+        } else {
+          answer.classList.add('hidden');
+          if (glassIcon) glassIcon.className = "faq-icon-glass fa-solid fa-plus text-purple-400 text-sm transition-transform duration-300";
+          if (brutalIcon) {
+            brutalIcon.innerText = "OPEN";
+            brutalIcon.className = "faq-icon-brutal transition-theme bg-[#ec4899] text-white font-mono font-bold px-3 py-1 border-2 border-black rounded text-xs transition duration-300";
+          }
+        }
+      }
     }
 
     // Initial fetch on load

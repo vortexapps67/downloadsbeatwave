@@ -236,6 +236,71 @@
           <p class="uppercase font-mono">LOADING STATS FROM GITHUB...</p>
         </div>
       </div>
+    </section>    <!-- FAQ Section -->
+    <section class="mt-16">
+      <div class="mb-10 text-left">
+        <h3 class="text-3xl font-black uppercase bg-[#06b6d4] text-white px-5 py-2.5 brutal-border brutal-shadow inline-block rotate-[-1deg]">
+          ❔ FAQ / READ ME FIRST
+        </h3>
+        <p class="text-sm font-bold uppercase tracking-wide mt-4">Troubleshoot your installation and understand how BeatWave works.</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Q1 -->
+        <div class="brutal-card rounded-2xl overflow-hidden">
+          <button onclick="toggleFAQ(1)" class="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-purple-50 transition duration-150">
+            <span class="font-black text-lg uppercase tracking-tight">Is the APK safe to install?</span>
+            <span id="faq-icon-1" class="bg-[#ec4899] text-white font-mono font-bold px-3 py-1 border-2 border-black brutal-shadow rounded text-xs transition duration-300">OPEN</span>
+          </button>
+          <div id="faq-answer-1" class="hidden border-t-4 border-black p-6 bg-white font-mono text-sm leading-relaxed uppercase">
+            Yes, absolutely. BeatWave is fully open-source and free of ads, tracking trackers, or telemetry SDKs. The app is offline-first, meaning your playback history, cached tracks, and library details remain strictly on your local device.
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="brutal-card rounded-2xl overflow-hidden">
+          <button onclick="toggleFAQ(2)" class="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-purple-50 transition duration-150">
+            <span class="font-black text-lg uppercase tracking-tight">Why does BeatWave need Storage permissions?</span>
+            <span id="faq-icon-2" class="bg-[#ec4899] text-white font-mono font-bold px-3 py-1 border-2 border-black brutal-shadow rounded text-xs transition duration-300">OPEN</span>
+          </button>
+          <div id="faq-answer-2" class="hidden border-t-4 border-black p-6 bg-white font-mono text-sm leading-relaxed uppercase">
+            BeatWave requires read access to your device's storage (READ_EXTERNAL_STORAGE or READ_MEDIA_AUDIO ON ANDROID 13+) in order to scan and index your local audio files (MP3, FLAC, WAV, etc.) into the app library. We never access your photos, videos, or personal files.
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="brutal-card rounded-2xl overflow-hidden">
+          <button onclick="toggleFAQ(3)" class="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-purple-50 transition duration-150">
+            <span class="font-black text-lg uppercase tracking-tight">What is 'Listen Together' mode?</span>
+            <span id="faq-icon-3" class="bg-[#ec4899] text-white font-mono font-bold px-3 py-1 border-2 border-black brutal-shadow rounded text-xs transition duration-300">OPEN</span>
+          </button>
+          <div id="faq-answer-3" class="hidden border-t-4 border-black p-6 bg-white font-mono text-sm leading-relaxed uppercase">
+            Listen Together is a feature that allows you to synchronize your music queue and playback controls in real-time with friends on the same Wi-Fi network. It utilizes Android's Network Service Discovery (mDNS) to link local instances peer-to-peer without sending queries through a cloud relay.
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="brutal-card rounded-2xl overflow-hidden">
+          <button onclick="toggleFAQ(4)" class="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-purple-50 transition duration-150">
+            <span class="font-black text-lg uppercase tracking-tight">How do I install the APK file on my device?</span>
+            <span id="faq-icon-4" class="bg-[#ec4899] text-white font-mono font-bold px-3 py-1 border-2 border-black brutal-shadow rounded text-xs transition duration-300">OPEN</span>
+          </button>
+          <div id="faq-answer-4" class="hidden border-t-4 border-black p-6 bg-white font-mono text-sm leading-relaxed uppercase">
+            Click the "Get APK" download button to fetch the file. Once downloaded, open it from your browser or file manager. If prompted, toggle "Allow installation from unknown sources" in your Android system security settings to complete the setup.
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="brutal-card rounded-2xl overflow-hidden">
+          <button onclick="toggleFAQ(5)" class="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-purple-50 transition duration-150">
+            <span class="font-black text-lg uppercase tracking-tight">Does the player support Lossless Audio playback?</span>
+            <span id="faq-icon-5" class="bg-[#ec4899] text-white font-mono font-bold px-3 py-1 border-2 border-black brutal-shadow rounded text-xs transition duration-300">OPEN</span>
+          </button>
+          <div id="faq-answer-5" class="hidden border-t-4 border-black p-6 bg-white font-mono text-sm leading-relaxed uppercase">
+            Yes! Powered by Jetpack Media3 core APIs, BeatWave natively parses and decodes lossless formats like FLAC and WAV alongside standard compressed files, guaranteeing full-fidelity playback.
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
@@ -525,6 +590,24 @@
       }
       
       requestAnimationFrame(update);
+    }
+
+    // FAQ Toggle Function
+    function toggleFAQ(num) {
+      const answer = document.getElementById(`faq-answer-${num}`);
+      const icon = document.getElementById(`faq-icon-${num}`);
+      if (answer && icon) {
+        const isHidden = answer.classList.contains('hidden');
+        if (isHidden) {
+          answer.classList.remove('hidden');
+          icon.innerText = "CLOSE";
+          icon.className = "bg-[#f87171] text-black font-mono font-bold px-3 py-1 border-2 border-black brutal-shadow rounded text-xs transition duration-300";
+        } else {
+          answer.classList.add('hidden');
+          icon.innerText = "OPEN";
+          icon.className = "bg-[#ec4899] text-white font-mono font-bold px-3 py-1 border-2 border-black brutal-shadow rounded text-xs transition duration-300";
+        }
+      }
     }
 
     // Initial fetch on load
