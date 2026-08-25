@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>BeatWave - Download Liquid Glass Audio Player for Android</title>
+  <meta name="description" content="Download BeatWave, the next-generation offline music player for Android featuring a beautiful Liquid Glass interface, lossless audio support, YouTube Music integration, and Listen Together local sync.">
+  <meta name="keywords" content="BeatWave, download apk, android music player, local music player, glassmorphism, media3, lossless audio, youtube music adfree, listen together local server, BeatLabs">
+  <meta name="author" content="BeatLabs">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook (SEO) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BeatWave - Download Liquid Glass Audio Player for Android">
+  <meta property="og:description" content="Download the latest BeatWave APK. Premium design, local network sync, lossless playback, and zero ads.">
+  <meta property="og:image" content="ic_launcher-playstore.png">
+  <meta property="og:url" content="https://github.com/beatlabs790/BeatWave">
+  <meta property="og:site_name" content="BeatWave Download Portal">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BeatWave - Download Liquid Glass Audio Player for Android">
+  <meta name="twitter:description" content="Download the latest BeatWave APK. Frosted liquid glass design, lossless audio, and zero ads.">
+  <meta name="twitter:image" content="ic_launcher-playstore.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="ic_launcher-playstore.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Schema.org Structured Data (SEO) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BeatWave",
+      "operatingSystem": "Android",
+      "applicationCategory": "MultimediaApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      },
+      "downloadUrl": "https://github.com/beatlabs790/BeatWave/releases",
+      "featureList": "Liquid Glass Interface, Lossless Audio Support, Spotify Playlist Importer, Karaoke Vocal Suppression, Android Auto, Local Network Sync, Zero Ads",
+      "releaseNotes": "https://github.com/beatlabs790/BeatWave/releases"
+    }
+  </script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          },
+          animation: {
+            'aurora-slow': 'aurora 25s ease infinite alternate',
+            'aurora-medium': 'aurora 18s ease infinite alternate-reverse',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            aurora: {
+              '0%': { transform: 'translate(0px, 0px) scale(1) rotate(0deg)' },
+              '33%': { transform: 'translate(30px, -50px) scale(1.1) rotate(120deg)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.95) rotate(240deg)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1) rotate(360deg)' }
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-8px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #03030c;
+    }
+    
+    .glass-panel {
+      background: rgba(10, 11, 24, 0.45);
+      backdrop-filter: blur(20px) saturate(190%);
+      -webkit-backdrop-filter: blur(20px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.7), 
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
+    }
+    
+    .glass-card {
+      background: rgba(15, 17, 34, 0.3);
+      backdrop-filter: blur(14px) saturate(170%);
+      -webkit-backdrop-filter: blur(14px) saturate(170%);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), 
+                  inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .glass-card:hover {
+      background: rgba(25, 28, 52, 0.45);
+      border-color: rgba(168, 85, 247, 0.35);
+      transform: translateY(-5px);
+      box-shadow: 0 30px 50px -12px rgba(147, 51, 234, 0.18),
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+    }
+    
+    .text-glow {
+      text-shadow: 0 0 30px rgba(192, 132, 252, 0.3);
+    }
+
+    /* Custom scrollbar for glass modals */
+    .glass-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .glass-scrollbar::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 9999px;
+    }
+    .glass-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 9999px;
+    }
+    .glass-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body class="text-white min-h-screen overflow-x-hidden font-sans selection:bg-purple-600 selection:text-white relative">
+  <!-- Dynamic Glowing Aurora Background Canvas -->
+  <div class="fixed top-[-20%] left-[-20%] w-[70%] h-[70%] bg-indigo-600/15 rounded-full blur-[130px] pointer-events-none animate-aurora-slow"></div>
+  <div class="fixed bottom-[-20%] right-[-15%] w-[80%] h-[80%] bg-purple-600/10 rounded-full blur-[150px] pointer-events-none animate-aurora-medium"></div>
+  <div class="fixed top-[30%] right-[5%] w-[50%] h-[50%] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none animate-aurora-slow" style="animation-delay: -5s;"></div>
+
+  <div class="container mx-auto px-4 py-16 max-w-5xl relative z-10">
+    <!-- Header -->
+    <header class="flex flex-col items-center text-center mb-16 animate-float">
+      <div class="relative mb-8 group">
+        <!-- Soft purple/cyan aura pulse behind logo -->
+        <div class="absolute -inset-2 bg-gradient-to-r from-purple-500 via-fuchsia-500 to-cyan-400 rounded-[36px] blur-xl opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+        <!-- Logo container - Made Larger (w-36 h-36) -->
+        <div class="relative bg-[#070815] p-3 rounded-[32px] border border-white/15 shadow-2xl transition duration-500 group-hover:scale-105">
+          <img src="ic_launcher-playstore.png" alt="BeatWave Logo" class="w-36 h-36 rounded-[22px] object-cover" onerror="this.src='https://github.com/beatlabs790/BeatWave/raw/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png'">
+        </div>
+      </div>
+      <h1 class="font-display text-5xl sm:text-7xl font-extrabold tracking-tight mb-4">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-100 to-purple-400">BeatWave</span>
+      </h1>
+      <p class="text-purple-300/60 font-medium tracking-widest text-xs sm:text-sm uppercase mb-8">
+        Liquid Glass Audio Playback for Android
+      </p>
+
+      <!-- Prominent HERO Download Latest button -->
+      <div class="flex justify-center mb-8">
+        <a id="hero-download-btn" href="https://github.com/beatlabs790/BeatWave/releases" target="_blank" 
+           class="px-8 py-4 bg-gradient-to-r from-purple-600 via-fuchsia-600 to-cyan-500 hover:from-purple-500 hover:via-fuchsia-500 hover:to-cyan-400 rounded-2xl font-bold tracking-wide shadow-lg shadow-purple-900/40 hover:shadow-[0_0_40px_rgba(168,85,247,0.5)] transition duration-300 transform active:scale-95 flex items-center gap-3">
+          <i class="fa-solid fa-download text-lg"></i> Download Latest Version
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2 text-[11px] font-medium tracking-wider uppercase bg-white/5 border border-white/10 rounded-full py-1.5 px-5 text-purple-200/70 inline-flex">
+        <i class="fa-solid fa-circle text-cyan-400 animate-pulse text-[7px] mr-1"></i>
+        <span id="api-status">Connecting to GitHub API...</span>
+      </div>
+    </header>
+
+    <!-- Combined Total Card -->
+    <section class="mb-12">
+      <div class="glass-panel rounded-3xl p-8 sm:p-14 relative overflow-hidden">
+        <!-- Subtle grid background details inside the panel -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+        <div class="absolute right-[-15%] top-[-25%] w-[450px] h-[450px] bg-gradient-to-br from-purple-500/15 via-cyan-500/5 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="relative flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-400 bg-cyan-950/40 border border-cyan-500/20 rounded-full px-4 py-1.5">System Overview</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold font-display tracking-tight mt-5 mb-3">Total Downloads</h2>
+            <p class="text-white/50 text-sm sm:text-base max-w-lg leading-relaxed">Combined release metrics calculated dynamically from assets published to official repositories.</p>
+          </div>
+          
+          <div class="flex items-center gap-4 bg-white/[0.02] border border-white/5 rounded-2xl p-6 sm:p-8 min-w-[280px] justify-center lg:justify-start shadow-inner">
+            <i class="fa-solid fa-arrow-down-long text-cyan-400 text-3xl mr-1 self-center bg-cyan-950/30 p-3 rounded-xl border border-cyan-500/20"></i>
+            <div>
+              <span id="total-count" class="font-display text-5xl sm:text-6xl font-black text-glow tracking-tighter bg-gradient-to-r from-white via-purple-300 to-cyan-300 bg-clip-text text-transparent">0</span>
+              <p class="text-[10px] font-bold uppercase tracking-widest text-purple-300/70 mt-1">Acquired APKs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPI Support Section -->
+    <section class="mb-12">
+      <div class="glass-panel rounded-3xl p-8 sm:p-10 relative overflow-hidden">
+        <div class="absolute right-[-10%] bottom-[-20%] w-80 h-80 bg-gradient-to-tr from-pink-500/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+        <div class="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+          <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+            <div class="bg-white/10 p-4 rounded-2xl border border-white/10 shadow-lg shrink-0">
+              <img src="upi logo.png" alt="UPI Logo" class="h-12 w-auto object-contain" onerror="this.style.display='none'">
+            </div>
+            <div>
+              <h3 class="font-display text-2xl font-bold tracking-tight text-white mb-1">Support BeatWave Development</h3>
+              <p class="text-white/50 text-sm max-w-md">BeatWave is open-source and ad-free. Keep lossless music playback running with a tip or donation.</p>
+            </div>
+          </div>
+          
+          <div class="flex flex-col items-center sm:items-stretch gap-3 w-full md:w-auto min-w-[280px]">
+            <!-- UPI Copy Box -->
+            <div class="bg-white/5 border border-white/10 rounded-xl py-3 px-4 flex items-center justify-between gap-4">
+              <div class="font-mono text-xs text-purple-200/90 truncate selection:bg-purple-600">
+                akshanshsinha67@axl
+              </div>
+              <button onclick="copyUPI()" class="text-xs text-cyan-400 hover:text-cyan-300 flex items-center gap-1 font-semibold transition">
+                <i id="copy-icon" class="fa-regular fa-copy"></i> <span id="copy-text">Copy</span>
+              </button>
+            </div>
+            <!-- Vercel Portal Link -->
+            <a href="https://support-akshansh.vercel.app" target="_blank" 
+               class="bg-purple-600 hover:bg-purple-500 active:scale-95 text-white text-xs font-bold text-center py-3.5 px-6 rounded-xl border border-purple-500/30 transition shadow-lg shadow-purple-900/20 flex items-center justify-center gap-2">
+              Visit Support Portal <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Version Counter List Section -->
+    <section>
+      <div class="flex items-center justify-between mb-10">
+        <h3 class="font-display text-xl sm:text-3xl font-extrabold tracking-tight flex items-center gap-3">
+          <i class="fa-solid fa-shapes text-purple-400 text-lg sm:text-xl"></i>
+          Releases Breakdown
+        </h3>
+        <button onclick="fetchData()" class="text-xs bg-white/5 hover:bg-white/10 active:scale-95 border border-white/10 hover:border-purple-500/20 transition duration-300 rounded-xl py-2.5 px-4 flex items-center gap-2 font-medium tracking-wide">
+          <i id="refresh-icon" class="fa-solid fa-arrows-rotate"></i> Refresh
+        </button>
+      </div>
+
+      <div id="releases-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Skeleton Loading Loader -->
+        <div class="col-span-full flex flex-col items-center justify-center py-24 text-white/30">
+          <i class="fa-solid fa-circle-notch animate-spin text-4xl mb-4 text-purple-500"></i>
+          <p class="text-sm font-medium tracking-wider uppercase">Loading stats database...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-24 border-t border-white/5 pt-10 text-center text-xs text-white/35 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex flex-col items-center sm:items-start text-center sm:text-left">
+        <p class="mb-2">© 2026 BeatLabs. Styled in Liquid Obsidian Glass.</p>
+        <div class="flex justify-center sm:justify-start gap-4 text-[10px] uppercase font-bold tracking-wider text-purple-300/60">
+          <button onclick="openModal('privacy')" class="hover:text-purple-300 transition duration-200">Privacy Policy</button>
+          <span>•</span>
+          <button onclick="openModal('terms')" class="hover:text-purple-300 transition duration-200">Terms of Conditions</button>
+        </div>
+      </div>
+      
+      <!-- Make in India Badge Alignment -->
+      <div class="flex flex-col sm:flex-row items-center gap-6">
+        <div class="flex items-center gap-2 bg-white/[0.02] border border-white/5 rounded-xl px-4 py-2" title="Make in India">
+          <span class="text-[9px] font-bold uppercase tracking-widest text-white/40">Proudly Made In India</span>
+          <img src="Make_In_India.png" alt="Make in India Emblem" class="h-6 w-auto object-contain brightness-95 opacity-80" onerror="this.style.display='none'">
+        </div>
+        
+        <div class="flex items-center gap-5 text-base">
+          <a href="https://github.com/beatlabs790/BeatWave" target="_blank" class="hover:text-purple-400 transition duration-300"><i class="fa-brands fa-github"></i></a>
+          <a href="brutalism.html" class="text-[11px] font-bold uppercase tracking-widest bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition rounded-xl px-4 py-2 text-white/80 hover:text-white">Switch to Brutalism</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- PRIVACY POLICY MODAL -->
+  <div id="privacy-modal" class="hidden fixed inset-0 bg-black/75 backdrop-blur-md z-50 flex items-center justify-center p-4 transition-all duration-300">
+    <div class="glass-panel max-w-2xl w-full max-h-[80vh] rounded-3xl p-8 relative flex flex-col shadow-2xl">
+      <button onclick="closeModal('privacy')" class="absolute top-6 right-6 text-white/40 hover:text-white transition duration-200 text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <div class="mb-6">
+        <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-400">Legal Documents</span>
+        <h3 class="text-2xl sm:text-3xl font-extrabold font-display mt-1">Privacy Policy</h3>
+      </div>
+      
+      <div class="glass-scrollbar overflow-y-auto pr-2 text-sm text-white/70 space-y-4 leading-relaxed font-light">
+        <p class="font-semibold text-white/90">Last Updated: August 25, 2026</p>
+        <p>BeatWave is developed by BeatLabs. We believe that your privacy is a fundamental human right. Our application is built as an offline-first music workspace, meaning your library, cache, habits, and preferences stay exactly where they belong: on your local device.</p>
+        
+        <h4 class="font-semibold text-white/90 text-base mt-4 border-l-2 border-purple-500 pl-3">1. Data Storage & Portability</h4>
+        <p>All data generated or indexed inside BeatWave is saved locally utilizing SQLite/Room Database structures. There are zero accounts to configure and zero login identifiers. We do not maintain any cloud instances of your private library collections.</p>
+        
+        <h4 class="font-semibold text-white/90 text-base mt-4 border-l-2 border-purple-500 pl-3">2. Zero Telemetry Policy</h4>
+        <p>We do not include analytical engines, tracking SDKs (such as Firebase Analytics, Flurry, or Amplitude), or crash reporters that automatically upload log details. If the application crashes, the records remain strictly on device storage.</p>
+        
+        <h4 class="font-semibold text-white/90 text-base mt-4 border-l-2 border-purple-500 pl-3">3. External Connections & Integrations</h4>
+        <ul class="list-disc list-inside pl-2 space-y-1.5 font-mono text-[12px] text-purple-200">
+          <li><strong>Streaming Integration:</strong> When loading remote catalogs (such as YouTube Music streams), search requests are resolved directly through public endpoints. These queries fall under their respective terms and data collection rules.</li>
+          <li><strong>Listen Together:</strong> Syncing playback state with network nodes uses Network Service Discovery (mDNS). Playback actions (such as skip, play, seek) are cast peer-to-peer over the local network and never sent to cloud relays.</li>
+        </ul>
+
+        <h4 class="font-semibold text-white/90 text-base mt-4 border-l-2 border-purple-500 pl-3">4. Necessary Device Permissions</h4>
+        <p>To run effectively on Android platforms, the application requires local file read permissions (MediaStore access) to map your offline audio files, and local network check capabilities to facilitate device casts. You are free to grant or deny these preferences in settings at any point.</p>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-white/5 flex justify-end">
+        <button onclick="closeModal('privacy')" class="px-5 py-2 bg-white/5 hover:bg-white/10 active:scale-95 border border-white/10 transition rounded-xl text-xs font-semibold">
+          Dismiss Policy
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TERMS OF CONDITIONS MODAL -->
+  <div id="terms-modal" class="hidden fixed inset-0 bg-black/75 backdrop-blur-md z-50 flex items-center justify-center p-4 transition-all duration-300">
+    <div class="glass-panel max-w-2xl w-full max-h-[80vh] rounded-3xl p-8 relative flex flex-col shadow-2xl">
+      <button onclick="closeModal('terms')" class="absolute top-6 right-6 text-white/40 hover:text-white transition duration-200 text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <div class="mb-6">
+        <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-400">Legal Documents</span>
+        <h3 class="text-2xl sm:text-3xl font-extrabold font-display mt-1">Terms of Conditions</h3>
+      </div>
+      
+      <div class="glass-scrollbar overflow-y-auto pr-2 text-sm text-white/70 space-y-4 leading-relaxed font-light">
+        <p class="font-semibold text-white/90">Last Updated: August 25, 2026</p>
+        <p>By downloading, building, or using the BeatWave application, you acknowledge and agree to be bound by the following conditions. If you do not accept these provisions, do not proceed with running this software.</p>
+        
+        <h4 class="font-semibold text-white/90 text-base mt-4 border-l-2 border-cyan-500 pl-3">1. Scope of Use</h4>
+        <p>BeatWave is an open-source media player utility. You are permitted to modify, build, and adapt the software codebase under the terms of its repository license. This software is authorized exclusively for individual, non-commercial entertainment purposes.</p>
+        
+        <h4 class="font-semibold text-white/90 text-base mt-4 border-l-2 border-cyan-500 pl-3">2. Content & Legality</h4>
+        <p>BeatWave acts as a modular shell player. We do not generate, host, cache, or distribute copyright-protected streaming streams. Users are strictly responsible for verifying that their streaming sources, local media files, and storage directories comply with copyright laws in their local jurisdiction.</p>
+        
+        <h4 class="font-semibold text-white/90 text-base mt-4 border-l-2 border-cyan-500 pl-3">3. Disclaimer of Warranty</h4>
+        <p class="font-mono text-[12px] text-cyan-300 uppercase leading-normal">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIMS, DAMAGES, SYSTEM LAGS, OR DATA DISRUPTIONS ARISING FROM THE INSTANCE OF SYSTEM RUNTIMES.</p>
+        
+        <h4 class="font-semibold text-white/90 text-base mt-4 border-l-2 border-cyan-500 pl-3">4. Intellectual Property</h4>
+        <p>The name "BeatWave", visual guidelines, logos, and custom "Liquid Glass" vector styles are the property of BeatLabs. Custom forks must modify all brand assets, package tags, and names prior to any distribution channels.</p>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-white/5 flex justify-end">
+        <button onclick="closeModal('terms')" class="px-5 py-2 bg-cyan-950/20 hover:bg-cyan-900/20 active:scale-95 border border-cyan-500/20 text-cyan-300 transition rounded-xl text-xs font-semibold">
+          Accept Conditions
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Cached static data compiled on August 25, 2026
+    const fallbackData = [
+      { tag: "v5.1.0", name: "BeatWave-v5.1.0-release.apk", count: 177, date: "2026-08-21", url: "https://github.com/beatlabs790/BeatWave/releases/download/v5.1.0/BeatWave-v5.1.0-release.apk" },
+      { tag: "v5.0.0", name: "BeatWave-v5.0.0-release.apk", count: 450, date: "2026-08-15", url: "https://github.com/beatlabs790/BeatWave/releases/download/v5.0.0/BeatWave-v5.0.0-release.apk" },
+      { tag: "v4.5.0", name: "BeatWave-v4.5.0-release.apk", count: 154, date: "2026-08-13", url: "https://github.com/beatlabs790/BeatWave/releases/download/v4.5.0/BeatWave-v4.5.0-release.apk" },
+      { tag: "v4.3.5", name: "BeatWave-v4.3.5-release.apk", count: 914, date: "2026-07-30", url: "https://github.com/beatlabs790/BeatWave/releases/download/v4.3.5/BeatWave-v4.3.5-release.apk" },
+      { tag: "v4.3.0", name: "BeatWave-v4.3-release.apk", count: 9, date: "2026-07-26", url: "https://github.com/beatlabs790/BeatWave/releases/download/v4.3.0/BeatWave-v4.3-release.apk" },
+      { tag: "v4.2", name: "BeatWave-v4.2-Universal.apk", count: 15, date: "2026-07-19", url: "https://github.com/beatlabs790/BeatWave/releases/download/v4.2/BeatWave-v4.2-Universal.apk" },
+      { tag: "v4.1", name: "BeatWave-v4.1-release.apk", count: 18, date: "2026-07-12", url: "https://github.com/beatlabs790/BeatWave/releases/download/v4.1/BeatWave-v4.1-release.apk" },
+      { tag: "v4.0", name: "BeatWave-release-v4.apk", count: 112, date: "2026-06-13", url: "https://github.com/beatlabs790/BeatWave/releases/download/v4.0/BeatWave-release-v4.apk" },
+      { tag: "3.2", name: "BeatWave.v3.2.apk", count: 53, date: "2026-05-17", url: "https://github.com/beatlabs790/BeatWave/releases/download/3.2/BeatWave.v3.2.apk" },
+      { tag: "v3.1", name: "BeatWave.V3.1.apk", count: 108, date: "2026-05-07", url: "https://github.com/beatlabs790/BeatWave/releases/download/v3.1/BeatWave.V3.1.apk" },
+      { tag: "v3", name: "BeatWave.v3.apk", count: 15, date: "2026-05-03", url: "https://github.com/beatlabs790/BeatWave/releases/download/v3/BeatWave.v3.apk" },
+      { tag: "v2", name: "BeatWave.v2.release.apk", count: 19, date: "2026-04-21", url: "https://github.com/beatlabs790/BeatWave/releases/download/v2/BeatWave.v2.release.apk" },
+      { tag: "V1.0", name: "BeatWave.Realease.1.apk", count: 40, date: "2026-04-05", url: "https://github.com/beatlabs790/BeatWave/releases/download/V1.0/BeatWave.Realease.1.apk" }
+    ];
+
+    // Modal Control Functions
+    function openModal(id) {
+      document.getElementById(id + '-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal(id) {
+      document.getElementById(id + '-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal on clicking outside the content box
+    window.addEventListener('click', function(e) {
+      ['privacy-modal', 'terms-modal'].forEach(id => {
+        const modal = document.getElementById(id);
+        if (e.target === modal) {
+          closeModal(id.split('-')[0]);
+        }
+      });
+    });
+
+    // Copy UPI ID function
+    function copyUPI() {
+      const upiText = "akshanshsinha67@axl";
+      navigator.clipboard.writeText(upiText).then(() => {
+        const copyTextEl = document.getElementById('copy-text');
+        const copyIconEl = document.getElementById('copy-icon');
+        
+        copyTextEl.innerText = "Copied!";
+        copyIconEl.className = "fa-solid fa-check text-emerald-400";
+        
+        setTimeout(() => {
+          copyTextEl.innerText = "Copy";
+          copyIconEl.className = "fa-regular fa-copy";
+        }, 2000);
+      }).catch(err => {
+        console.error("Failed to copy text: ", err);
+      });
+    }
+
+    async function fetchData() {
+      const refreshIcon = document.getElementById('refresh-icon');
+      const statusText = document.getElementById('api-status');
+      if (refreshIcon) refreshIcon.classList.add('animate-spin');
+      if (statusText) statusText.innerText = "Querying GitHub API...";
+
+      try {
+        const response = await fetch('https://api.github.com/repos/beatlabs790/BeatWave/releases');
+        if (!response.ok) throw new Error('API request limited or failed');
+        
+        const data = await response.json();
+        const parsedReleases = [];
+
+        data.forEach(release => {
+          if (release.assets && release.assets.length > 0) {
+            release.assets.forEach(asset => {
+              if (asset.name.endsWith('.apk')) {
+                parsedReleases.push({
+                  tag: release.tag_name,
+                  name: asset.name,
+                  count: asset.download_count,
+                  date: new Date(release.published_at).toISOString().split('T')[0],
+                  url: asset.browser_download_url
+                });
+              }
+            });
+          }
+        });
+
+        if (parsedReleases.length === 0) throw new Error('No assets found');
+        
+        statusText.innerHTML = `<span class="text-cyan-400"><i class="fa-solid fa-circle-check mr-1.5"></i> Live Stats Synced</span>`;
+        renderData(parsedReleases);
+      } catch (err) {
+        console.warn('GitHub API failed, loading local snapshot.', err);
+        statusText.innerHTML = `<span class="text-purple-400/80"><i class="fa-solid fa-triangle-exclamation mr-1.5"></i> Offline Local Snapshot</span>`;
+        renderData(fallbackData);
+      } finally {
+        if (refreshIcon) refreshIcon.classList.remove('animate-spin');
+      }
+    }
+
+    function renderData(items) {
+      const container = document.getElementById('releases-container');
+      const totalCountEl = document.getElementById('total-count');
+      const heroBtn = document.getElementById('hero-download-btn');
+      
+      container.innerHTML = '';
+      let totalDownloads = 0;
+
+      // Render items
+      items.forEach((item, index) => {
+        totalDownloads += item.count;
+        
+        const card = document.createElement('div');
+        card.className = 'glass-card rounded-2xl p-6 flex flex-col justify-between gap-5 relative overflow-hidden group';
+        card.style.animationDelay = `${index * 40}ms`;
+        
+        const formattedDate = new Date(item.date).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        });
+
+        card.innerHTML = `
+          <!-- Shimmer Sweep Hover Effect -->
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out pointer-events-none"></div>
+          
+          <div>
+            <div class="flex items-center justify-between mb-3.5">
+              <span class="text-xs font-extrabold font-display bg-purple-500/10 text-purple-300 border border-purple-500/20 rounded-lg px-3 py-1">
+                ${item.tag}
+              </span>
+              <span class="text-xs text-white/40 font-semibold tracking-wide font-display">
+                <i class="fa-regular fa-calendar-days mr-1.5 text-purple-400/70"></i> ${formattedDate}
+              </span>
+            </div>
+            <h4 class="font-bold text-white/90 text-sm tracking-wide truncate group-hover:text-purple-300 transition-colors" title="${item.name}">
+              ${item.name}
+            </h4>
+          </div>
+          
+          <div class="flex items-end justify-between mt-1 pt-4 border-t border-white/5">
+            <div class="flex flex-col">
+              <span class="text-[9px] uppercase font-bold tracking-[0.15em] text-white/30">Downloads</span>
+              <div class="flex items-baseline gap-1 mt-0.5">
+                <span class="font-display text-2xl font-black text-white group-hover:text-cyan-300 transition-colors duration-300">${item.count.toLocaleString()}</span>
+                <span class="text-[10px] text-cyan-400 font-bold uppercase tracking-wide">APKs</span>
+              </div>
+            </div>
+            
+            <a href="${item.url || 'https://github.com/beatlabs790/BeatWave/releases/tag/' + item.tag}" target="_blank" 
+               class="bg-white/5 hover:bg-gradient-to-r hover:from-purple-600 hover:to-indigo-600 active:scale-95 border border-white/10 hover:border-purple-400/40 text-white/80 hover:text-white transition duration-300 rounded-xl px-4 py-2.5 text-xs font-semibold flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-download"></i> Get APK
+            </a>
+          </div>
+        `;
+        
+        container.appendChild(card);
+      });
+
+      // Bind the latest version info dynamically to the prominent hero download button
+      const latest = items[0];
+      if (heroBtn && latest) {
+        heroBtn.href = latest.url;
+        heroBtn.innerHTML = `<i class="fa-solid fa-download text-lg"></i> Download Latest (${latest.tag})`;
+      }
+
+      // Animate total counter
+      animateCounter(totalCountEl, totalDownloads);
+    }
+
+    function animateCounter(element, target) {
+      let start = 0;
+      const duration = 1200; // ms
+      const startTime = performance.now();
+
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = progress * (2 - progress); // outQuad
+        const currentVal = Math.floor(ease * target);
+        element.innerText = currentVal.toLocaleString();
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          element.innerText = target.toLocaleString();
+        }
+      }
+      
+      requestAnimationFrame(update);
+    }
+
+    // Initial fetch on load
+    window.addEventListener('DOMContentLoaded', fetchData);
+  </script>
+</body>
+</html>

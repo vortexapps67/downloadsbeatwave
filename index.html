@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>BeatWave - Download Liquid Glass Audio Player for Android</title>
+  <meta name="description" content="Download BeatWave, the next-generation offline music player for Android featuring a beautiful Liquid Glass interface, lossless audio support, YouTube Music integration, and Listen Together local sync.">
+  <meta name="keywords" content="BeatWave, download apk, android music player, local music player, glassmorphism, media3, lossless audio, youtube music adfree, listen together local server, BeatLabs">
+  <meta name="author" content="BeatLabs">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook (SEO) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BeatWave - Download Liquid Glass Audio Player for Android">
+  <meta property="og:description" content="Download the latest BeatWave APK. Premium design, local network sync, lossless playback, and zero ads.">
+  <meta property="og:image" content="ic_launcher-playstore.png">
+  <meta property="og:url" content="https://github.com/beatlabs790/BeatWave">
+  <meta property="og:site_name" content="BeatWave Download Portal">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BeatWave - Download Liquid Glass Audio Player for Android">
+  <meta name="twitter:description" content="Download the latest BeatWave APK. Frosted liquid glass design, lossless audio, and zero ads.">
+  <meta name="twitter:image" content="ic_launcher-playstore.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="ic_launcher-playstore.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts for both styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Schema.org Structured Data (SEO) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BeatWave",
+      "operatingSystem": "Android",
+      "applicationCategory": "MultimediaApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      },
+      "downloadUrl": "https://github.com/beatlabs790/BeatWave/releases",
+      "featureList": "Liquid Glass Interface, Lossless Audio Support, Spotify Playlist Importer, Karaoke Vocal Suppression, Android Auto, Local Network Sync, Zero Ads",
+      "releaseNotes": "https://github.com/beatlabs790/BeatWave/releases"
+    }
+  </script>
+
+  <style>
+    /* ---------------------------------------------------- */
+    /* SHARED & ROOT CLASSES */
+    /* ---------------------------------------------------- */
+    .transition-theme {
+      transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                  color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .brutal-border {
+      border: 4px solid #000000;
+    }
+    .brutal-shadow {
+      box-shadow: 8px 8px 0px 0px #000000;
+    }
+
+    /* ---------------------------------------------------- */
+    /* GLASSMORPHISM THEME STYLES */
+    /* ---------------------------------------------------- */
+    .theme-glass {
+      background-color: #03030c;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    
+    .theme-glass .glow-blob {
+      display: block;
+    }
+
+    .theme-glass .dot-grid {
+      display: none;
+    }
+
+    .theme-glass .logo-container {
+      background: rgba(7, 8, 21, 0.8);
+      padding: 8px;
+      border-radius: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 40px rgba(168, 85, 247, 0.25);
+      transform: rotate(0deg);
+    }
+
+    .theme-glass .app-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      background: linear-gradient(to right, #ffffff, #f3e8ff, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      transform: none;
+    }
+
+    .theme-glass .app-subtitle {
+      color: rgba(216, 180, 254, 0.6);
+      background: none;
+      border: none;
+      letter-spacing: 0.15em;
+    }
+
+    .theme-glass .total-card {
+      background: rgba(10, 11, 24, 0.45);
+      backdrop-filter: blur(20px) saturate(190%);
+      -webkit-backdrop-filter: blur(20px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.7), 
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
+    }
+
+    .theme-glass .total-card-badge {
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      color: #67e8f9;
+      border-radius: 9999px;
+      box-shadow: none;
+      letter-spacing: 0.15em;
+    }
+
+    .theme-glass .total-card-heading {
+      color: #ffffff;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .theme-glass .counter-container {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .theme-glass .counter-number {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(to right, #ffffff, #d8b4fe, #67e8f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+      text-shadow: 0 0 30px rgba(192, 132, 252, 0.25);
+    }
+
+    .theme-glass .counter-badge {
+      background: rgba(147, 51, 234, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      color: #d8b4fe;
+    }
+
+    .theme-glass .support-card {
+      background: rgba(10, 11, 24, 0.45);
+      backdrop-filter: blur(20px) saturate(190%);
+      -webkit-backdrop-filter: blur(20px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+    }
+
+    .theme-glass .support-logo-box {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 1rem;
+    }
+
+    .theme-glass .upi-copy-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      font-family: monospace;
+    }
+
+    .theme-glass .support-gateway-btn {
+      background: #9333ea;
+      color: #ffffff;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 12px;
+    }
+    .theme-glass .support-gateway-btn:hover {
+      background: #a855f7;
+      transform: scale(1.02);
+    }
+
+    .theme-glass .release-card {
+      background: rgba(15, 17, 34, 0.3);
+      backdrop-filter: blur(14px) saturate(170%);
+      -webkit-backdrop-filter: blur(14px) saturate(170%);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), 
+                  inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+      border-radius: 20px;
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .theme-glass .release-card:hover {
+      background: rgba(25, 28, 52, 0.45);
+      border-color: rgba(168, 85, 247, 0.35);
+      transform: translateY(-5px);
+      box-shadow: 0 30px 50px -12px rgba(147, 51, 234, 0.18),
+                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    .theme-glass .release-badge {
+      background: rgba(147, 51, 234, 0.1);
+      color: #d8b4fe;
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      box-shadow: none;
+    }
+
+    .theme-glass .release-date {
+      color: rgba(255, 255, 255, 0.4);
+      border: none;
+      background: none;
+      padding: 0;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .theme-glass .release-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .theme-glass .download-btn {
+      background: rgba(255, 255, 255, 0.05);
+      color: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: none;
+      border-radius: 12px;
+      font-weight: 500;
+    }
+
+    .theme-glass .download-btn:hover {
+      background: linear-gradient(to right, #9333ea, #6366f1);
+      color: #ffffff;
+      border-color: rgba(168, 85, 247, 0.4);
+      transform: scale(1.03);
+    }
+
+    /* Glass Hero Button Styling */
+    .theme-glass #hero-download-btn {
+      background: linear-gradient(to right, #9333ea, #db2777, #06b6d4);
+      background-size: 200% auto;
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.5);
+      border-radius: 20px;
+    }
+
+    .theme-glass #hero-download-btn:hover {
+      background-position: right center;
+      box-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
+      transform: scale(1.03);
+    }
+
+    .theme-glass .status-container {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 9999px;
+      color: rgba(216, 180, 254, 0.7);
+    }
+
+    .theme-glass .section-title {
+      border: none;
+      background: none;
+      color: #ffffff;
+      font-family: 'Outfit', sans-serif;
+      padding: 0;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .theme-glass .control-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border-radius: 12px;
+    }
+    
+    .theme-glass .control-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .theme-glass .footer-card {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: rgba(255, 255, 255, 0.35);
+      background: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+      box-shadow: none;
+      border-radius: 0;
+      padding-top: 2rem;
+    }
+
+    .theme-glass .footer-logo-link {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .theme-glass .footer-logo-link:hover {
+      color: #c084fc;
+    }
+
+    /* Theme Glass Modals */
+    .theme-glass .modal-overlay {
+      background-color: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+    }
+
+    .theme-glass .modal-card {
+      background: rgba(10, 11, 24, 0.55);
+      backdrop-filter: blur(20px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.8), inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .theme-glass .modal-close {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .theme-glass .modal-close:hover {
+      color: #ffffff;
+    }
+
+    .theme-glass .modal-title {
+      color: #ffffff;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .theme-glass .modal-sub {
+      color: #06b6d4;
+    }
+
+    .theme-glass .modal-h4 {
+      border-left: 2px solid #a855f7;
+      color: #ffffff;
+      padding-left: 0.75rem;
+    }
+
+    .theme-glass .modal-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 9999px;
+    }
+
+    /* Aurora Animations for Glass theme */
+    @keyframes aurora {
+      0% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+      33% { transform: translate(30px, -50px) scale(1.1) rotate(120deg); }
+      66% { transform: translate(-20px, 20px) scale(0.95) rotate(240deg); }
+      100% { transform: translate(0px, 0px) scale(1) rotate(360deg); }
+    }
+    
+    .theme-glass .animate-aurora-slow {
+      animation: aurora 25s ease infinite alternate;
+    }
+    
+    .theme-glass .animate-aurora-medium {
+      animation: aurora 18s ease infinite alternate-reverse;
+    }
+
+    /* ---------------------------------------------------- */
+    /* NEO-BRUTALISM THEME STYLES - Matched to Logo Colors */
+    /* ---------------------------------------------------- */
+    .theme-brutal {
+      background-color: #f2effc; /* Soft Lavender */
+      color: #000000;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .theme-brutal .glow-blob {
+      display: none;
+    }
+
+    .theme-brutal .dot-grid {
+      display: block;
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(#000000 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .theme-brutal .logo-container {
+      background-color: #a855f7; /* Purple */
+      padding: 8px;
+      border: 4px solid #000000;
+      box-shadow: 8px 8px 0px 0px #000000;
+      border-radius: 24px;
+      transform: rotate(-3deg);
+    }
+
+    .theme-brutal .app-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 850;
+      background-color: #ec4899; /* Pink/Magenta */
+      color: #ffffff;
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: unset;
+      border: 4px solid #000000;
+      box-shadow: 6px 6px 0px 0px #000000;
+      padding: 0.5rem 2rem;
+      transform: rotate(1.5deg);
+      display: inline-block;
+    }
+
+    .theme-brutal .app-subtitle {
+      color: #000000;
+      background-color: #ffffff;
+      border: 3px solid #000000;
+      padding: 0.375rem 1.25rem;
+      letter-spacing: 0;
+      font-weight: 700;
+      box-shadow: 3px 3px 0px 0px #000000;
+    }
+
+    .theme-brutal .total-card {
+      background: #a855f7; /* Purple */
+      border: 4px solid #000000;
+      box-shadow: 8px 8px 0px 0px #000000;
+      color: #ffffff;
+      border-radius: 24px;
+    }
+
+    .theme-brutal .total-card-badge {
+      background: #000000;
+      border: 2px solid #000000;
+      color: #ffffff;
+      border-radius: 6px;
+      box-shadow: 2px 2px 0px 0px #06b6d4;
+      letter-spacing: 0;
+    }
+
+    .theme-brutal .total-card-heading {
+      color: #000000;
+    }
+
+    .theme-brutal .counter-container {
+      background: #ffffff;
+      color: #000000;
+      border: 4px solid #000000;
+      box-shadow: 6px 6px 0px 0px #000000;
+      border-radius: 16px;
+      transform: rotate(1.5deg);
+    }
+
+    .theme-brutal .counter-number {
+      font-family: 'Space Mono', monospace;
+      text-shadow: none;
+      color: #000000;
+      background: none;
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: unset;
+      font-weight: 700;
+    }
+
+    .theme-brutal .counter-badge {
+      background: #06b6d4; /* Cyan */
+      border: 2px solid #000000;
+      color: #ffffff;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    .theme-brutal .support-card {
+      background: #ffffff;
+      border: 4px solid #000000;
+      box-shadow: 8px 8px 0px 0px #000000;
+      border-radius: 24px;
+      color: #000000;
+    }
+
+    .theme-brutal .support-logo-box {
+      background-color: #facc15;
+      border: 3px solid #000000;
+      box-shadow: 4px 4px 0px 0px #000000;
+      border-radius: 16px;
+      padding: 1rem;
+      transform: rotate(-1deg);
+    }
+
+    .theme-brutal .upi-copy-box {
+      background: #ffffff;
+      border: 3px solid #000000;
+      border-radius: 8px;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+    }
+
+    .theme-brutal .support-gateway-btn {
+      background: #ec4899; /* Pink */
+      color: #ffffff;
+      border: 3px solid #000000;
+      box-shadow: 4px 4px 0px 0px #000000;
+      font-weight: 800;
+      border-radius: 12px;
+    }
+    .theme-brutal .support-gateway-btn:hover {
+      background: #f472b6;
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px 0px #000000;
+    }
+    .theme-brutal .support-gateway-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px 0px #000000;
+    }
+
+    .theme-brutal .release-card {
+      background: #ffffff;
+      border: 4px solid #000000;
+      box-shadow: 8px 8px 0px 0px #000000;
+      border-radius: 20px;
+      transition: all 0.15s ease-out;
+    }
+
+    .theme-brutal .release-card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 12px 12px 0px 0px #000000;
+    }
+
+    .theme-brutal .release-card:active {
+      transform: translate(4px, 4px);
+      box-shadow: 0px 0px 0px 0px #000000;
+    }
+
+    .theme-brutal .release-badge {
+      border: 2px solid #000000;
+      border-radius: 6px;
+      box-shadow: 2px 2px 0px 0px #000000;
+      font-family: 'Space Mono', monospace;
+      font-weight: 800;
+    }
+
+    .theme-brutal .release-date {
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      color: #000000;
+      background: #e5e7eb;
+      border: 2px solid #000000;
+      padding: 0.125rem 0.5rem;
+      border-radius: 6px;
+    }
+
+    .theme-brutal .release-title {
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      color: #000000;
+    }
+
+    .theme-brutal .download-btn {
+      background: #a855f7;
+      color: #ffffff;
+      border: 3px solid #000000;
+      box-shadow: 4px 4px 0px 0px #000000;
+      border-radius: 10px;
+      font-weight: 800;
+    }
+
+    .theme-brutal .download-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px 0px #000000;
+      background: #c084fc;
+    }
+
+    .theme-brutal .download-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px 0px #000000;
+    }
+
+    /* Brutalist Hero Button Styling - Cyan matching logo accent */
+    .theme-brutal #hero-download-btn {
+      background: #06b6d4;
+      color: #ffffff;
+      border: 4px solid #000000;
+      box-shadow: 8px 8px 0px 0px #000000;
+      border-radius: 12px;
+      text-transform: uppercase;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+    }
+
+    .theme-brutal #hero-download-btn:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 11px 11px 0px 0px #000000;
+      background-color: #22d3ee;
+    }
+
+    .theme-brutal #hero-download-btn:active {
+      transform: translate(5px, 5px);
+      box-shadow: 0px 0px 0px 0px #000000;
+    }
+
+    .theme-brutal .status-container {
+      background: #ffffff;
+      border: 3px solid #000000;
+      border-radius: 0;
+      box-shadow: 3px 3px 0px 0px #000000;
+      color: #000000;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+    }
+
+    .theme-brutal .section-title {
+      background: #ffffff;
+      border: 3px solid #000000;
+      box-shadow: 4px 4px 0px 0px #000000;
+      color: #000000;
+      display: inline-block;
+      padding: 0.25rem 1rem;
+      font-weight: 800;
+    }
+
+    .theme-brutal .control-btn {
+      background: #ffffff;
+      border: 3px solid #000000;
+      color: #000000;
+      border-radius: 10px;
+      box-shadow: 4px 4px 0px 0px #000000;
+      font-weight: 800;
+    }
+    
+    .theme-brutal .control-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 5px 5px 0px 0px #000000;
+    }
+
+    .theme-brutal .control-btn:active {
+      transform: translate(3px, 3px);
+      box-shadow: 1px 1px 0px 0px #000000;
+    }
+
+    .theme-brutal .footer-card {
+      background: #ffffff;
+      border: 4px solid #000000;
+      box-shadow: 6px 6px 0px 0px #000000;
+      border-radius: 16px;
+      color: #000000;
+      font-weight: 700;
+      padding: 1.5rem;
+    }
+
+    .theme-brutal .footer-logo-link {
+      color: #000000;
+      background: #06b6d4;
+      padding: 0.5rem;
+      border: 2px solid #000000;
+      box-shadow: 3px 3px 0px 0px #000000;
+      border-radius: 8px;
+    }
+
+    .theme-brutal .footer-logo-link:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px 0px #000000;
+    }
+
+    /* Theme Brutal Modals */
+    .theme-brutal .modal-overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: none;
+    }
+
+    .theme-brutal .modal-card {
+      background: #ffffff;
+      border: 4px solid #000000;
+      box-shadow: 8px 8px 0px 0px #000000;
+      border-radius: 16px;
+      color: #000000;
+      font-family: 'Space Mono', monospace;
+    }
+
+    .theme-brutal .modal-close {
+      background: #f87171;
+      border: 2px solid #000000;
+      color: #000000;
+      padding: 0.25rem 0.5rem;
+      font-weight: 800;
+    }
+
+    .theme-brutal .modal-close:hover {
+      background: #fca5a5;
+    }
+
+    .theme-brutal .modal-title {
+      color: #000000;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .theme-brutal .modal-sub {
+      background-color: #ec4899;
+      border: 2px solid #000000;
+      color: #ffffff;
+      padding: 0.125rem 0.5rem;
+      border-radius: 6px;
+      box-shadow: 2px 2px 0px 0px #000000;
+    }
+
+    .theme-brutal .modal-h4 {
+      border-bottom: 2px solid #000000;
+      color: #000000;
+      padding-bottom: 0.25rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .theme-brutal .modal-scrollbar::-webkit-scrollbar-thumb {
+      background: #000000;
+      border: 1px solid #ffffff;
+    }
+  </style>
+</head>
+<body id="app-body" class="theme-brutal transition-theme min-h-screen overflow-x-hidden relative p-0 m-0 pb-12">
+
+  <!-- THEME ELEMENTS -->
+  <!-- Glass Theme Glow Blobs -->
+  <div class="glow-blob fixed top-[-20%] left-[-20%] w-[70%] h-[70%] bg-indigo-600/15 rounded-full blur-[130px] pointer-events-none animate-aurora-slow"></div>
+  <div class="glow-blob fixed bottom-[-20%] right-[-15%] w-[80%] h-[80%] bg-purple-600/10 rounded-full blur-[150px] pointer-events-none animate-aurora-medium" style="animation-delay: 2s;"></div>
+  <div class="glow-blob fixed top-[30%] right-[5%] w-[50%] h-[50%] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none animate-aurora-slow" style="animation-delay: -5s;"></div>
+  
+  <!-- Brutalist Theme Dot Grid -->
+  <div class="dot-grid"></div>
+
+  <!-- THEME SWITCH FLOATER -->
+  <div class="fixed top-6 right-6 z-50">
+    <button onclick="toggleTheme()" class="control-btn transition-theme flex items-center gap-2 py-2.5 px-4 font-bold text-xs uppercase cursor-pointer select-none">
+      <span id="theme-btn-icon"><i class="fa-solid fa-wand-magic-sparkles text-xs text-purple-600"></i></span>
+      <span id="theme-btn-text">Glass Theme</span>
+    </button>
+  </div>
+
+  <div class="container mx-auto px-4 py-16 max-w-5xl relative z-10">
+    <!-- Header -->
+    <header class="flex flex-col items-center text-center mb-16">
+      <div class="relative mb-8 group">
+        <!-- Logo Image wrapper - Made Larger (w-36 h-36) -->
+        <div class="logo-container transition-theme inline-block">
+          <img src="ic_launcher-playstore.png" alt="BeatWave Logo" class="w-36 h-36 rounded-2xl object-cover" onerror="this.src='https://github.com/beatlabs790/BeatWave/raw/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png'">
+        </div>
+      </div>
+      
+      <h1 class="app-title transition-theme text-5xl sm:text-7xl tracking-tight mb-4">
+        BeatWave
+      </h1>
+      
+      <p class="app-subtitle transition-theme font-bold uppercase text-[10px] sm:text-xs tracking-[0.2em] max-w-md inline-block">
+        Liquid Glass Audio Playback for Android
+      </p>
+
+      <!-- Prominent HERO Download Latest button -->
+      <div class="mt-8 flex justify-center">
+        <a id="hero-download-btn" href="https://github.com/beatlabs790/BeatWave/releases" target="_blank" 
+           class="transition-theme px-8 py-4 font-bold tracking-wide flex items-center gap-3 active:scale-95">
+          <i class="fa-solid fa-download text-lg"></i> Download Latest Version
+        </a>
+      </div>
+      
+      <div class="mt-6 flex justify-center">
+        <div class="status-container transition-theme flex items-center gap-2 text-xs py-1.5 px-5 font-bold uppercase">
+          <i id="indicator" class="fa-solid fa-circle text-cyan-400 animate-pulse text-[8px]"></i>
+          <span id="api-status">Connecting to GitHub API...</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Combined Total Card -->
+    <section class="mb-12">
+      <div class="total-card transition-theme p-8 sm:p-14 relative overflow-hidden">
+        <!-- Background grid detail (hidden in brutal) -->
+        <div class="glow-blob absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+        <div class="glow-blob absolute right-[-15%] top-[-25%] w-[450px] h-[450px] bg-gradient-to-br from-purple-500/15 via-cyan-500/5 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="relative flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+          <div>
+            <span class="total-card-badge transition-theme text-[10px] font-bold uppercase tracking-widest px-3.5 py-1.5 inline-block">System Metrics</span>
+            <h2 class="total-card-heading transition-theme text-3xl sm:text-5xl font-black mt-5 mb-3 uppercase tracking-tight">Total Downloads</h2>
+            <p class="text-inherit opacity-75 text-sm sm:text-base max-w-lg font-medium leading-relaxed">Combined release downloads compiled dynamically from the GitHub releases assets counts.</p>
+          </div>
+          
+          <div class="counter-container transition-theme flex flex-col items-center justify-center p-6 sm:p-8 min-w-[260px]">
+            <span class="text-[10px] font-bold uppercase tracking-widest opacity-40 mb-1">Combined Total</span>
+            <div class="flex items-baseline gap-2">
+              <i class="glow-blob fa-solid fa-arrow-down-long text-cyan-400 text-3xl mr-1 self-center"></i>
+              <span id="total-count" class="counter-number transition-theme text-5xl sm:text-7xl font-black tracking-tighter">0</span>
+            </div>
+            <span class="counter-badge transition-theme font-bold uppercase mt-2 text-xs px-3 py-1">APKs Cached</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPI Support Section -->
+    <section class="mb-12">
+      <div class="support-card transition-theme p-8 sm:p-10 relative overflow-hidden">
+        <div class="glow-blob absolute right-[-10%] bottom-[-20%] w-80 h-80 bg-gradient-to-tr from-pink-500/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+          <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+            <div class="support-logo-box transition-theme shrink-0 flex items-center justify-center">
+              <img src="upi logo.png" alt="UPI Logo" class="h-12 w-auto object-contain bg-white rounded-md p-1" onerror="this.style.display='none'">
+            </div>
+            <div>
+              <h3 class="font-display text-2xl font-bold tracking-tight mb-1 uppercase">Support BeatWave Development</h3>
+              <p class="opacity-70 text-sm max-w-md font-medium">BeatWave is open-source and free of ads. Keep playback engines running with a small tip or donation.</p>
+            </div>
+          </div>
+          
+          <div class="flex flex-col items-center sm:items-stretch gap-3 w-full lg:w-auto min-w-[280px]">
+            <!-- UPI Copy Box -->
+            <div class="upi-copy-box transition-theme py-3.5 px-4 flex items-center justify-between gap-4">
+              <div class="text-xs truncate font-semibold">
+                akshanshsinha67@axl
+              </div>
+              <button onclick="copyUPI()" class="text-xs text-cyan-400 font-bold flex items-center gap-1 transition">
+                <i id="copy-icon" class="fa-regular fa-copy"></i> <span id="copy-text">COPY</span>
+              </button>
+            </div>
+            <!-- Portal Link Button -->
+            <a href="https://support-akshansh.vercel.app" target="_blank" 
+               class="support-gateway-btn transition-theme text-center py-3.5 px-6 font-extrabold uppercase text-xs flex items-center justify-center gap-2">
+              Visit Support Portal <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Version Counter List Section -->
+    <section>
+      <div class="flex items-center justify-between mb-10">
+        <h3 class="section-title transition-theme font-bold text-xl sm:text-3xl uppercase">
+          ⚡ Releases Index
+        </h3>
+        <button onclick="fetchData()" class="control-btn transition-theme text-xs py-2.5 px-4 flex items-center gap-1.5 uppercase font-bold cursor-pointer">
+          <i id="refresh-icon" class="fa-solid fa-arrows-rotate"></i> Refresh
+        </button>
+      </div>
+
+      <div id="releases-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Dynamic content will load here -->
+        <div class="col-span-full flex flex-col items-center justify-center py-20 text-white/40">
+          <i class="fa-solid fa-circle-notch animate-spin text-3xl mb-4 text-purple-400"></i>
+          <p>Fetching download records...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-card transition-theme mt-24 text-center text-xs flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="text-center sm:text-left">
+        <p class="uppercase mb-2 font-bold">© 2026 BeatLabs. Designed in India.</p>
+        <div class="flex justify-center sm:justify-start gap-4 mt-2 text-[10px] uppercase font-bold tracking-wider opacity-75">
+          <button onclick="openModal('privacy')" class="hover:underline transition duration-200">Privacy Policy</button>
+          <span>•</span>
+          <button onclick="openModal('terms')" class="hover:underline transition duration-200">Terms of Conditions</button>
+        </div>
+      </div>
+      
+      <!-- India Badge styled to shift along with themes -->
+      <div class="flex flex-col sm:flex-row items-center gap-6">
+        <div id="india-badge" class="flex items-center gap-2 px-4 py-2 transition-theme rounded-lg bg-yellow-300 brutal-border brutal-shadow text-black" title="Make in India">
+          <span class="text-[9px] font-bold font-mono uppercase tracking-widest opacity-60">Made In India</span>
+          <img src="Make_In_India.png" alt="Make in India Emblem" class="h-6 w-auto object-contain brightness-95" onerror="this.style.display='none'">
+        </div>
+        
+        <div class="flex items-center gap-6">
+          <a href="https://github.com/beatlabs790/BeatWave" target="_blank" class="footer-logo-link transition-theme text-xl"><i class="fa-brands fa-github"></i></a>
+          <a href="glassmorphism.html" class="hover:underline transition text-xs font-bold uppercase tracking-wider">Standalone Glass</a>
+          <a href="brutalism.html" class="hover:underline transition text-xs font-bold uppercase tracking-wider">Standalone Brutal</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- PRIVACY POLICY MODAL (AUTO-MORPHING) -->
+  <div id="privacy-modal" class="modal-overlay hidden fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300">
+    <div class="modal-card max-w-2xl w-full max-h-[80vh] p-8 relative flex flex-col transition-theme">
+      <button onclick="closeModal('privacy')" class="modal-close absolute top-6 right-6 transition duration-200 text-sm font-bold font-mono">
+        CLOSE [X]
+      </button>
+      
+      <div class="mb-6">
+        <span class="modal-sub transition-theme text-[9px] font-bold uppercase tracking-wider">DOCUMENT 01</span>
+        <h3 class="modal-title transition-theme text-2xl sm:text-3xl font-extrabold mt-2">Privacy Policy</h3>
+      </div>
+      
+      <div class="modal-scrollbar overflow-y-auto pr-2 text-sm leading-relaxed space-y-4 font-light">
+        <p class="font-bold">Last Updated: August 25, 2026</p>
+        <p>BeatWave is developed by BeatLabs. We believe that your privacy is a fundamental human right. Our application is built as an offline-first music workspace, meaning your library, cache, habits, and preferences stay exactly where they belong: on your local device.</p>
+        
+        <h4 class="modal-h4 transition-theme font-bold text-base mt-4 pl-3">1. Data Storage & Portability</h4>
+        <p>All data generated or indexed inside BeatWave is saved locally utilizing SQLite/Room Database structures. There are zero accounts to configure and zero login identifiers. We do not maintain any cloud instances of your private library collections.</p>
+        
+        <h4 class="modal-h4 transition-theme font-bold text-base mt-4 pl-3">2. Zero Telemetry Policy</h4>
+        <p>We do not include analytical engines, tracking SDKs (such as Firebase Analytics, Flurry, or Amplitude), or crash reporters that automatically upload log details. If the application crashes, the records remain strictly on device storage.</p>
+        
+        <h4 class="modal-h4 transition-theme font-bold text-base mt-4 pl-3">3. External Connections & Integrations</h4>
+        <ul class="list-disc list-inside pl-2 space-y-1.5 font-mono text-[13px] opacity-90">
+          <li><strong>Streaming Integration:</strong> When loading remote catalogs (such as YouTube Music streams), search requests are resolved directly through public endpoints. These queries fall under their respective terms and data collection rules.</li>
+          <li><strong>Listen Together:</strong> Syncing playback state with network nodes uses Network Service Discovery (mDNS). Playback actions (such as skip, play, seek) are cast peer-to-peer over the local network and never sent to cloud relays.</li>
+        </ul>
+
+        <h4 class="modal-h4 transition-theme font-bold text-base mt-4 pl-3">4. Necessary Device Permissions</h4>
+        <p>To run effectively on Android platforms, the application requires local file read permissions (MediaStore access) to map your offline audio files, and local network check capabilities to facilitate device casts. You are free to grant or deny these preferences in settings at any point.</p>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-black/10 flex justify-end">
+        <button onclick="closeModal('privacy')" class="control-btn transition-theme text-xs font-semibold px-5 py-2 uppercase">
+          I Acknowledge
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TERMS & CONDITIONS MODAL (AUTO-MORPHING) -->
+  <div id="terms-modal" class="modal-overlay hidden fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300">
+    <div class="modal-card max-w-2xl w-full max-h-[80vh] p-8 relative flex flex-col transition-theme">
+      <button onclick="closeModal('terms')" class="modal-close absolute top-6 right-6 transition duration-200 text-sm font-bold font-mono">
+        CLOSE [X]
+      </button>
+      
+      <div class="mb-6">
+        <span class="modal-sub transition-theme text-[9px] font-bold uppercase tracking-wider">DOCUMENT 02</span>
+        <h3 class="modal-title transition-theme text-2xl sm:text-3xl font-extrabold mt-2">Terms of Conditions</h3>
+      </div>
+      
+      <div class="modal-scrollbar overflow-y-auto pr-2 text-sm leading-relaxed space-y-4 font-light">
+        <p class="font-bold">Last Updated: August 25, 2026</p>
+        <p>By downloading, building, or using the BeatWave application, you acknowledge and agree to be bound by the following conditions. If you do not accept these provisions, do not proceed with running this software.</p>
+        
+        <h4 class="modal-h4 transition-theme font-bold text-base mt-4 pl-3">1. Scope of Use</h4>
+        <p>BeatWave is an open-source media player utility. You are permitted to modify, build, and adapt the software codebase under the terms of its repository license. This software is authorized exclusively for individual, non-commercial entertainment purposes.</p>
+        
+        <h4 class="modal-h4 transition-theme font-bold text-base mt-4 pl-3">2. Content & Legality</h4>
+        <p>BeatWave acts as a modular shell player. We do not generate, host, cache, or distribute copyright-protected streaming streams. Users are strictly responsible for verifying that their streaming sources, local media files, and storage directories comply with copyright laws in their local jurisdiction.</p>
+        
+        <h4 class="modal-h4 transition-theme font-bold text-base mt-4 pl-3">3. Disclaimer of Warranty</h4>
+        <p class="font-mono text-[13px] opacity-90">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIMS, DAMAGES, SYSTEM LAGS, OR DATA DISRUPTIONS ARISING FROM THE INSTANCE OF SYSTEM RUNTIMES.</p>
+        
+        <h4 class="modal-h4 transition-theme font-bold text-base mt-4 pl-3">4. Intellectual Property</h4>
+        <p>The name "BeatWave", visual guidelines, logos, and custom "Liquid Glass" vector styles are the property of BeatLabs. Custom forks must modify all brand assets, package tags, and names prior to any distribution channels.</p>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-black/10 flex justify-end">
+        <button onclick="closeModal('terms')" class="control-btn transition-theme text-xs font-semibold px-5 py-2 uppercase">
+          I Agree
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Cached static data compiled on August 25, 2026
+    const fallbackData = [
+      { tag: "v5.1.0", name: "BeatWave-v5.1.0-release.apk", count: 177, date: "2026-08-21", url: "https://github.com/beatlabs790/BeatWave/releases/download/v5.1.0/BeatWave-v5.1.0-release.apk" },
+      { tag: "v5.0.0", name: "BeatWave-v5.0.0-release.apk", count: 450, date: "2026-08-15", url: "https://github.com/beatlabs790/BeatWave/releases/download/v5.0.0/BeatWave-v5.0.0-release.apk" },
+      { tag: "v4.5.0", name: "BeatWave-v4.5.0-release.apk", count: 154, date: "2026-08-13", url: "https://github.com/beatlabs790/BeatWave/releases/download/v4.5.0/BeatWave-v4.5.0-release.apk" },
+      { tag: "v4.3.5", name: "BeatWave-v4.3.5-release.apk", count: 914, date: "2026-07-30", url: "https://github.com/beatlabs790/BeatWave/releases/download/v4.3.5/BeatWave-v4.3.5-release.apk" },
+      { tag: "v4.3.0", name: "BeatWave-v4.3-release.apk", count: 9, date: "2026-07-26", url: "https://github.com/beatlabs790/BeatWave/releases/download/v4.3.0/BeatWave-v4.3-release.apk" },
+      { tag: "v4.2", name: "BeatWave-v4.2-Universal.apk", count: 15, date: "2026-07-19", url: "https://github.com/beatlabs790/BeatWave/releases/download/v4.2/BeatWave-v4.2-Universal.apk" },
+      { tag: "v4.1", name: "BeatWave-v4.1-release.apk", count: 18, date: "2026-07-12", url: "https://github.com/beatlabs790/BeatWave/releases/download/v4.1/BeatWave-v4.1-release.apk" },
+      { tag: "v4.0", name: "BeatWave-release-v4.apk", count: 112, date: "2026-06-13", url: "https://github.com/beatlabs790/BeatWave/releases/download/v4.0/BeatWave-release-v4.apk" },
+      { tag: "3.2", name: "BeatWave.v3.2.apk", count: 53, date: "2026-05-17", url: "https://github.com/beatlabs790/BeatWave/releases/download/3.2/BeatWave.v3.2.apk" },
+      { tag: "v3.1", name: "BeatWave.V3.1.apk", count: 108, date: "2026-05-07", url: "https://github.com/beatlabs790/BeatWave/releases/download/v3.1/BeatWave.V3.1.apk" },
+      { tag: "v3", name: "BeatWave.v3.apk", count: 15, date: "2026-05-03", url: "https://github.com/beatlabs790/BeatWave/releases/download/v3/BeatWave.v3.apk" },
+      { tag: "v2", name: "BeatWave.v2.release.apk", count: 19, date: "2026-04-21", url: "https://github.com/beatlabs790/BeatWave/releases/download/v2/BeatWave.v2.release.apk" },
+      { tag: "V1.0", name: "BeatWave.Realease.1.apk", count: 40, date: "2026-04-05", url: "https://github.com/beatlabs790/BeatWave/releases/download/V1.0/BeatWave.Realease.1.apk" }
+    ];
+
+    let currentReleases = [...fallbackData];
+    let isGlassTheme = false;
+
+    // Modal Control Functions
+    function openModal(id) {
+      document.getElementById(id + '-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal(id) {
+      document.getElementById(id + '-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Close on overlay click
+    window.addEventListener('click', function(e) {
+      ['privacy-modal', 'terms-modal'].forEach(id => {
+        const modal = document.getElementById(id);
+        if (e.target === modal) {
+          closeModal(id.split('-')[0]);
+        }
+      });
+    });
+
+    // Copy UPI ID function
+    function copyUPI() {
+      const upiText = "akshanshsinha67@axl";
+      navigator.clipboard.writeText(upiText).then(() => {
+        const copyTextEl = document.getElementById('copy-text');
+        const copyIconEl = document.getElementById('copy-icon');
+        
+        copyTextEl.innerText = "COPIED!";
+        if (isGlassTheme) {
+          copyIconEl.className = "fa-solid fa-check text-cyan-400";
+        } else {
+          copyIconEl.className = "fa-solid fa-check text-emerald-500";
+        }
+        
+        setTimeout(() => {
+          copyTextEl.innerText = "COPY";
+          copyIconEl.className = "fa-regular fa-copy";
+        }, 2000);
+      }).catch(err => {
+        console.error("Failed to copy text: ", err);
+      });
+    }
+
+    // Theme switching logic
+    function toggleTheme() {
+      const body = document.getElementById('app-body');
+      const btnIcon = document.getElementById('theme-btn-icon');
+      const btnText = document.getElementById('theme-btn-text');
+      const indiaBadge = document.getElementById('india-badge');
+      
+      isGlassTheme = !isGlassTheme;
+      
+      if (isGlassTheme) {
+        body.className = 'theme-glass transition-theme min-h-screen overflow-x-hidden relative p-0 m-0 pb-12';
+        btnIcon.innerHTML = `<i class="fa-solid fa-square-full text-[10px] text-yellow-300"></i>`;
+        btnText.innerText = "Brutalist Theme";
+        if (indiaBadge) {
+          indiaBadge.className = 'flex items-center gap-2 px-4 py-2 transition-theme rounded-xl';
+        }
+      } else {
+        body.className = 'theme-brutal transition-theme min-h-screen overflow-x-hidden relative p-0 m-0 pb-12';
+        btnIcon.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles text-xs text-purple-600"></i>`;
+        btnText.innerText = "Glass Theme";
+        if (indiaBadge) {
+          indiaBadge.className = 'flex items-center gap-2 px-4 py-2 transition-theme rounded-lg bg-yellow-300 brutal-border brutal-shadow text-black';
+        }
+      }
+      
+      // Re-render data to apply new theme card classes
+      renderData(currentReleases);
+    }
+
+    async function fetchData() {
+      const refreshIcon = document.getElementById('refresh-icon');
+      const statusText = document.getElementById('api-status');
+      const indicator = document.getElementById('indicator');
+      
+      if (refreshIcon) refreshIcon.classList.add('fa-spin');
+      if (statusText) statusText.innerText = isGlassTheme ? "Querying GitHub API..." : "QUERYING GITHUB API...";
+
+      try {
+        const response = await fetch('https://api.github.com/repos/beatlabs790/BeatWave/releases');
+        if (!response.ok) throw new Error('API request limited or failed');
+        
+        const data = await response.json();
+        const parsedReleases = [];
+
+        data.forEach(release => {
+          if (release.assets && release.assets.length > 0) {
+            release.assets.forEach(asset => {
+              if (asset.name.endsWith('.apk')) {
+                parsedReleases.push({
+                  tag: release.tag_name,
+                  name: asset.name,
+                  count: asset.download_count,
+                  date: new Date(release.published_at).toISOString().split('T')[0],
+                  url: asset.browser_download_url
+                });
+              }
+            });
+          }
+        });
+
+        if (parsedReleases.length === 0) throw new Error('No assets found');
+        
+        currentReleases = parsedReleases;
+        
+        if (statusText) {
+          statusText.innerText = isGlassTheme ? "Live Data Synchronized" : "LIVE DATA SYNCHRONIZED";
+          indicator.className = "fa-solid fa-circle text-emerald-400 animate-pulse text-[8px]";
+        }
+        renderData(currentReleases);
+      } catch (err) {
+        console.warn('GitHub API failed, loading local snapshot.', err);
+        currentReleases = fallbackData;
+        if (statusText) {
+          statusText.innerText = isGlassTheme ? "Offline Local Snapshot" : "SHOWING LOCAL SNAPSHOT";
+          indicator.className = isGlassTheme ? "fa-solid fa-circle text-purple-400/80 animate-pulse text-[8px]" : "fa-solid fa-circle text-amber-500 animate-pulse text-[8px]";
+        }
+        renderData(currentReleases);
+      } finally {
+        if (refreshIcon) refreshIcon.classList.remove('fa-spin');
+      }
+    }
+
+    function renderData(items) {
+      const container = document.getElementById('releases-container');
+      const totalCountEl = document.getElementById('total-count');
+      const heroBtn = document.getElementById('hero-download-btn');
+      
+      container.innerHTML = '';
+      let totalDownloads = 0;
+
+      items.forEach((item, index) => {
+        totalDownloads += item.count;
+        
+        const card = document.createElement('div');
+        card.className = 'release-card transition-theme p-6 flex flex-col justify-between gap-5 relative overflow-hidden group';
+        card.style.animationDelay = `${index * 30}ms`;
+        
+        const formattedDate = new Date(item.date).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        });
+
+        const brutalColors = ['bg-[#a855f7]', 'bg-[#ec4899]', 'bg-[#06b6d4]', 'bg-[#e9d5ff]', 'bg-[#f472b6]'];
+        const randomBrutalBg = brutalColors[index % brutalColors.length];
+
+        if (isGlassTheme) {
+          card.innerHTML = `
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out pointer-events-none"></div>
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="release-badge transition-theme text-xs font-extrabold px-3 py-1">
+                  ${item.tag}
+                </span>
+                <span class="release-date transition-theme text-xs font-semibold tracking-wide">
+                  <i class="fa-regular fa-calendar-days mr-1.5 text-purple-400/70"></i> ${formattedDate}
+                </span>
+              </div>
+              <h4 class="release-title transition-theme font-bold text-sm tracking-wide truncate group-hover:text-purple-300 transition-colors" title="${item.name}">
+                ${item.name}
+              </h4>
+            </div>
+            <div class="flex items-end justify-between mt-1 pt-4 border-t border-white/5">
+              <div class="flex flex-col">
+                <span class="text-[9px] uppercase font-bold tracking-[0.15em] text-white/30">Downloads</span>
+                <div class="flex items-baseline gap-1 mt-0.5">
+                  <span class="counter-number transition-theme text-2xl font-black">${item.count.toLocaleString()}</span>
+                  <span class="text-[10px] text-cyan-400 font-bold uppercase tracking-wide">APKs</span>
+                </div>
+              </div>
+              <a href="${item.url || 'https://github.com/beatlabs790/BeatWave/releases/tag/' + item.tag}" target="_blank" 
+                 class="download-btn transition-theme text-xs py-2.5 px-4 flex items-center justify-center gap-1.5 cursor-pointer font-semibold">
+                <i class="fa-solid fa-download"></i> Get APK
+              </a>
+            </div>
+          `;
+        } else {
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="release-badge transition-theme text-xs font-bold uppercase text-black ${randomBrutalBg} px-3 py-1">
+                  RELEASE ${item.tag}
+                </span>
+                <span class="release-date transition-theme text-xs font-mono font-bold">
+                  ${item.date}
+                </span>
+              </div>
+              <h4 class="release-title transition-theme font-bold text-lg font-mono tracking-tight break-all mb-2">
+                ${item.name}
+              </h4>
+            </div>
+            <div class="flex items-end justify-between mt-2 pt-4 border-t-2 border-black">
+              <div class="flex flex-col">
+                <span class="text-[10px] uppercase font-mono font-extrabold text-[#666] tracking-wider">COUNTER</span>
+                <div class="flex items-baseline gap-1 mt-0.5">
+                  <span class="counter-number transition-theme text-3xl font-black">${item.count.toLocaleString()}</span>
+                  <span class="text-xs font-bold uppercase">APKS</span>
+                </div>
+              </div>
+              <a href="${item.url || 'https://github.com/beatlabs790/BeatWave/releases/tag/' + item.tag}" target="_blank" 
+                 class="download-btn transition-theme text-xs py-2.5 px-4 bg-yellow-300 text-black flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-download"></i> DOWNLOAD
+              </a>
+            </div>
+          `;
+        }
+        
+        container.appendChild(card);
+      });
+
+      // Bind dynamic latest download
+      const latest = items[0];
+      if (heroBtn && latest) {
+        heroBtn.href = latest.url;
+        if (isGlassTheme) {
+          heroBtn.innerHTML = `<i class="fa-solid fa-download text-lg"></i> Download Latest (${latest.tag})`;
+        } else {
+          heroBtn.innerHTML = `<i class="fa-solid fa-download text-xl"></i> DOWNLOAD LATEST APK (${latest.tag})`;
+        }
+      }
+
+      // Animate total counter
+      animateCounter(totalCountEl, totalDownloads);
+    }
+
+    function animateCounter(element, target) {
+      let start = 0;
+      const duration = 1000; // ms
+      const startTime = performance.now();
+
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = progress * (2 - progress);
+        const currentVal = Math.floor(ease * target);
+        element.innerText = currentVal.toLocaleString();
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          element.innerText = target.toLocaleString();
+        }
+      }
+      
+      requestAnimationFrame(update);
+    }
+
+    // Initial fetch on load
+    window.addEventListener('DOMContentLoaded', fetchData);
+  </script>
+</body>
+</html>
