@@ -137,6 +137,38 @@
     .glass-scrollbar::-webkit-scrollbar-thumb:hover {
       background: rgba(255, 255, 255, 0.2);
     }
+
+    /* Cookie Banner rules */
+    .cookie-container {
+      background: rgba(10, 11, 24, 0.75);
+      backdrop-filter: blur(24px) saturate(190%);
+      -webkit-backdrop-filter: blur(24px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.8), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+    }
+    .cookie-decline-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.75);
+      border-radius: 12px;
+    }
+    .cookie-decline-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+    .cookie-accept-btn {
+      background: linear-gradient(to right, #9333ea, #db2777);
+      color: #ffffff;
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 6px 20px -6px rgba(168, 85, 247, 0.5);
+    }
+    .cookie-accept-btn:hover {
+      background: linear-gradient(to right, #a855f7, #ec4899);
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+      transform: scale(1.02);
+    }
   </style>
 </head>
 <body class="text-white min-h-screen overflow-x-hidden font-sans selection:bg-purple-600 selection:text-white relative">
@@ -350,6 +382,31 @@
         </div>
       </div>
     </footer>
+  </div>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" class="fixed bottom-6 left-6 right-6 md:left-auto md:max-w-md z-50 transition duration-300 hidden">
+    <div class="cookie-container p-6">
+      <div class="flex flex-col gap-4">
+        <div class="flex items-start gap-3">
+          <span class="cookie-icon text-2xl select-none">🍪</span>
+          <div>
+            <h4 class="cookie-title font-bold text-sm text-white">Cookie Settings</h4>
+            <p class="cookie-text text-[11px] mt-1 leading-relaxed text-white/60">
+              We use local storage configurations to remember your preferences. No analytics tracking or advertising cookies are ever used.
+            </p>
+          </div>
+        </div>
+        <div class="flex justify-end gap-3 mt-1">
+          <button onclick="declineCookies()" class="cookie-decline-btn text-xs font-semibold px-4 py-2 uppercase cursor-pointer">
+            Decline
+          </button>
+          <button onclick="acceptCookies()" class="cookie-accept-btn text-xs font-bold px-5 py-2 uppercase cursor-pointer">
+            Accept
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- PRIVACY POLICY MODAL -->
@@ -637,8 +694,29 @@
       }
     }
 
+    // Cookie Consent Handlers
+    function checkCookieConsent() {
+      const consent = localStorage.getItem('cookie-consent');
+      if (!consent) {
+        document.getElementById('cookie-banner').classList.remove('hidden');
+      }
+    }
+
+    function acceptCookies() {
+      localStorage.setItem('cookie-consent', 'accepted');
+      document.getElementById('cookie-banner').classList.add('hidden');
+    }
+
+    function declineCookies() {
+      localStorage.setItem('cookie-consent', 'declined');
+      document.getElementById('cookie-banner').classList.add('hidden');
+    }
+
     // Initial fetch on load
-    window.addEventListener('DOMContentLoaded', fetchData);
+    window.addEventListener('DOMContentLoaded', () => {
+      checkCookieConsent();
+      fetchData();
+    });
   </script>
 </body>
 </html>

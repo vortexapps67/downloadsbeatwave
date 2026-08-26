@@ -830,6 +830,96 @@
     .theme-brutal .faq-icon-glass {
       display: none;
     }
+
+    /* Cookie Banner morphing rules */
+    .theme-glass .cookie-container {
+      background: rgba(10, 11, 24, 0.75);
+      backdrop-filter: blur(24px) saturate(190%);
+      -webkit-backdrop-filter: blur(24px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.8), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+    }
+    .theme-glass .cookie-title {
+      color: #ffffff;
+      font-family: 'Outfit', sans-serif;
+    }
+    .theme-glass .cookie-text {
+      color: rgba(255, 255, 255, 0.65);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .theme-glass .cookie-decline-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.75);
+      border-radius: 12px;
+    }
+    .theme-glass .cookie-decline-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+    .theme-glass .cookie-accept-btn {
+      background: linear-gradient(to right, #9333ea, #db2777);
+      color: #ffffff;
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 6px 20px -6px rgba(168, 85, 247, 0.5);
+    }
+    .theme-glass .cookie-accept-btn:hover {
+      background: linear-gradient(to right, #a855f7, #ec4899);
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+      transform: scale(1.02);
+    }
+
+    .theme-brutal .cookie-container {
+      background: #ffffff;
+      border: 4px solid #000000;
+      box-shadow: 8px 8px 0px 0px #000000;
+      border-radius: 20px;
+    }
+    .theme-brutal .cookie-title {
+      color: #000000;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .theme-brutal .cookie-text {
+      color: #000000;
+      font-family: 'Space Mono', monospace;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .theme-brutal .cookie-decline-btn {
+      background: #e5e7eb;
+      border: 3px solid #000000;
+      color: #000000;
+      box-shadow: 3px 3px 0px 0px #000000;
+      border-radius: 8px;
+    }
+    .theme-brutal .cookie-decline-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px 0px #000000;
+    }
+    .theme-brutal .cookie-decline-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px 0px #000000;
+    }
+    .theme-brutal .cookie-accept-btn {
+      background: #06b6d4;
+      border: 3px solid #000000;
+      color: #ffffff;
+      box-shadow: 4px 4px 0px 0px #000000;
+      border-radius: 8px;
+    }
+    .theme-brutal .cookie-accept-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px 0px #000000;
+      background: #22d3ee;
+    }
+    .theme-brutal .cookie-accept-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px 0px #000000;
+    }
   </style>
 </head>
 <body id="app-body" class="theme-brutal transition-theme min-h-screen overflow-x-hidden relative p-0 m-0 pb-12">
@@ -1075,6 +1165,31 @@
     </footer>
   </div>
 
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" class="fixed bottom-6 left-6 right-6 md:left-auto md:max-w-md z-50 transition-theme hidden animate-float">
+    <div class="cookie-container transition-theme p-6">
+      <div class="flex flex-col gap-4">
+        <div class="flex items-start gap-3">
+          <span class="cookie-icon text-2xl select-none">🍪</span>
+          <div>
+            <h4 class="cookie-title transition-theme font-bold text-sm">Cookie Settings</h4>
+            <p class="cookie-text transition-theme text-[11px] mt-1 leading-relaxed opacity-85">
+              We use local storage cookies to remember your theme choice (Glass vs. Brutalism) and save your interface configurations. No tracking or marketing data is collected.
+            </p>
+          </div>
+        </div>
+        <div class="flex justify-end gap-3 mt-1">
+          <button onclick="declineCookies()" class="cookie-decline-btn transition-theme text-xs font-semibold px-4 py-2 uppercase cursor-pointer">
+            Decline
+          </button>
+          <button onclick="acceptCookies()" class="cookie-accept-btn transition-theme text-xs font-bold px-5 py-2 uppercase cursor-pointer">
+            Accept
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- PRIVACY POLICY MODAL (AUTO-MORPHING) -->
   <div id="privacy-modal" class="modal-overlay hidden fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300">
     <div class="modal-card max-w-2xl w-full max-h-[80vh] p-8 relative flex flex-col transition-theme">
@@ -1242,6 +1357,11 @@
         }
       }
       
+      // Save current theme preference if consent accepted
+      if (localStorage.getItem('cookie-consent') === 'accepted') {
+        localStorage.setItem('beatwave-theme', isGlassTheme ? 'glass' : 'brutal');
+      }
+
       // Re-render data to apply new theme card classes
       renderData(currentReleases);
     }
@@ -1450,8 +1570,58 @@
       }
     }
 
-    // Initial fetch on load
-    window.addEventListener('DOMContentLoaded', fetchData);
+    // Cookie Consent Handlers
+    function checkCookieConsent() {
+      const consent = localStorage.getItem('cookie-consent');
+      if (!consent) {
+        document.getElementById('cookie-banner').classList.remove('hidden');
+      }
+    }
+
+    function acceptCookies() {
+      localStorage.setItem('cookie-consent', 'accepted');
+      document.getElementById('cookie-banner').classList.add('hidden');
+      // Save current theme preference immediately on accept
+      localStorage.setItem('beatwave-theme', isGlassTheme ? 'glass' : 'brutal');
+    }
+
+    function declineCookies() {
+      localStorage.setItem('cookie-consent', 'declined');
+      // Clear any saved theme preference
+      localStorage.removeItem('beatwave-theme');
+      document.getElementById('cookie-banner').classList.add('hidden');
+    }
+
+    // Initial fetch on load and theme/cookie initialization
+    window.addEventListener('DOMContentLoaded', () => {
+      // Check cookies
+      checkCookieConsent();
+      
+      // Load saved theme if consent accepted
+      if (localStorage.getItem('cookie-consent') === 'accepted') {
+        const savedTheme = localStorage.getItem('beatwave-theme');
+        if (savedTheme === 'glass') {
+          isGlassTheme = true;
+          // Apply initial glass styling immediately
+          const body = document.getElementById('app-body');
+          const btnIcon = document.getElementById('theme-btn-icon');
+          const btnText = document.getElementById('theme-btn-text');
+          const indiaBadge = document.getElementById('india-badge');
+          
+          body.className = 'theme-glass transition-theme min-h-screen overflow-x-hidden relative p-0 m-0 pb-12';
+          btnIcon.innerHTML = `<i class="fa-solid fa-square-full text-[10px] text-yellow-300"></i>`;
+          btnText.innerText = "Brutalist Theme";
+          if (indiaBadge) {
+            indiaBadge.className = 'flex items-center gap-2 px-4 py-2 transition-theme rounded-xl';
+          }
+        } else if (savedTheme === 'brutal') {
+          isGlassTheme = false;
+          // Body defaults to theme-brutal in HTML, so no change needed
+        }
+      }
+      
+      fetchData();
+    });
   </script>
 </body>
 </html>
