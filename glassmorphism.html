@@ -28,10 +28,10 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="ic_launcher-playstore.png">
 
-  <!-- Google Fonts: Instrument Serif (display) + Instrument Sans (UI / body) -->
+  <!-- Google Fonts: Fraunces (display) + Inter (UI / body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300..700&display=swap" rel="stylesheet">
 
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -74,8 +74,8 @@
       --brass-lt:#eccf93;
       --clay:#c2624a;
 
-      --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
-      --sans:'Instrument Sans',system-ui,-apple-system,Segoe UI,sans-serif;
+      --serif:'Fraunces',Georgia,'Times New Roman',serif;
+      --sans:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
 
       --r:20px;
       --ease:cubic-bezier(.22,1,.36,1);
@@ -167,7 +167,7 @@
     .kicker .sep{opacity:.45;margin:0 .35em}
 
     .wordmark{
-      margin:14px 0 0;font-family:var(--serif);font-weight:400;letter-spacing:-.025em;line-height:.92;
+      margin:14px 0 0;font-family:var(--serif);font-weight:500;letter-spacing:-.036em;line-height:.9;
       font-size:clamp(3.5rem,12vw,7rem);
       background:linear-gradient(170deg,#fbf7ee 0%,#f6f1e7 42%,#eccf93 100%);
       -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
@@ -228,7 +228,7 @@
 
     .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:10.5px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--brass)}
     .eyebrow::before{content:"";width:22px;height:1px;background:linear-gradient(90deg,var(--brass),transparent)}
-    .title{margin:14px 0 0;font-family:var(--serif);font-weight:400;letter-spacing:-.015em;font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.05}
+    .title{margin:14px 0 0;font-family:var(--serif);font-weight:500;letter-spacing:-.02em;font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.08}
     .title em{font-style:italic;color:var(--brass-lt)}
     .sub{margin:12px 0 0;color:var(--muted);font-size:.94rem;line-height:1.7;max-width:540px}
     .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;flex-wrap:wrap}
@@ -240,7 +240,7 @@
       background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
     .stat{background:linear-gradient(160deg,rgba(255,246,230,.045),rgba(255,246,230,.01));padding:26px 24px}
     .stat .label{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
-    .stat .value{margin-top:12px;font-family:var(--serif);font-weight:400;letter-spacing:-.02em;line-height:1}
+    .stat .value{margin-top:12px;font-family:var(--serif);font-weight:500;letter-spacing:-.024em;line-height:1}
     .stat .value.big{
       font-size:clamp(3rem,8vw,4.6rem);
       background:linear-gradient(170deg,#fbf7ee,#eccf93);
@@ -325,7 +325,7 @@
     .release-card:hover .rc-name{color:var(--brass-lt)}
     .rc-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding-top:18px;border-top:1px solid rgba(255,246,230,.08)}
     .rc-label{font-size:9.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
-    .rc-num{display:block;margin-top:6px;font-family:var(--serif);font-weight:400;font-size:1.85rem;letter-spacing:-.02em;line-height:1;
+    .rc-num{display:block;margin-top:6px;font-family:var(--serif);font-weight:500;font-size:1.9rem;letter-spacing:-.024em;line-height:1;
       background:linear-gradient(170deg,#fbf7ee,#eccf93);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
     .rc-unit{font-style:normal;font-family:var(--sans);font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);-webkit-text-fill-color:var(--faint);margin-left:6px}
     .btn-mini{
@@ -401,7 +401,7 @@
     }
     .cookie-row{display:flex;align-items:flex-start;gap:14px}
     .cookie-icon{font-size:22px;line-height:1;user-select:none}
-    .cookie-title{margin:0;font-family:var(--serif);font-size:1.15rem;font-weight:400}
+    .cookie-title{margin:0;font-family:var(--serif);font-size:1.2rem;font-weight:500}
     .cookie-text{margin:8px 0 0;font-size:11.5px;line-height:1.65;color:var(--muted)}
     .cookie-actions{display:flex;justify-content:flex-end;gap:11px;margin-top:18px}
     .btn-decline,.btn-accept{
@@ -439,10 +439,10 @@
     }
     .modal-close:hover{background:rgba(217,162,74,.18);color:#fff;transform:rotate(90deg)}
     .modal-kicker{font-size:10px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--brass)}
-    .modal-title{margin:10px 0 0;font-family:var(--serif);font-size:clamp(1.7rem,4.4vw,2.4rem);font-weight:400;letter-spacing:-.015em;color:#fff}
+    .modal-title{margin:10px 0 0;font-family:var(--serif);font-size:clamp(1.7rem,4.4vw,2.4rem);font-weight:500;letter-spacing:-.02em;color:#fff}
     .modal-body{overflow-y:auto;margin-top:24px;padding-right:12px;font-size:.89rem;line-height:1.8}
     .modal-body > * + *{margin-top:14px}
-    .modal-body h4{margin:24px 0 0;padding-left:14px;border-left:2px solid var(--brass);color:#fff;font-family:var(--serif);font-weight:400;font-size:1.15rem;letter-spacing:-.01em}
+    .modal-body h4{margin:24px 0 0;padding-left:14px;border-left:2px solid var(--brass);color:#fff;font-family:var(--serif);font-weight:500;font-size:1.2rem;letter-spacing:-.015em}
     .modal-body ul{margin:14px 0 0;padding-left:20px;font-size:12.5px;color:rgba(236,207,147,.9)}
     .modal-body li + li{margin-top:7px}
     .modal-foot{display:flex;justify-content:flex-end;margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
@@ -456,6 +456,12 @@
     .modal-scroll::-webkit-scrollbar-track{background:rgba(255,246,230,.02);border-radius:9999px}
     .modal-scroll::-webkit-scrollbar-thumb{background:linear-gradient(180deg,rgba(217,162,74,.6),rgba(194,98,74,.5));border-radius:9999px}
     .modal-scroll::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,rgba(236,207,147,.8),rgba(217,162,74,.7))}
+
+    /* Lenis smooth scroll */
+    html.lenis,html.lenis body{height:auto}
+    .lenis.lenis-smooth{scroll-behavior:auto !important}
+    .lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+    .lenis.lenis-stopped{overflow:hidden}
 
     [hidden]{display:none !important}
 
@@ -661,7 +667,7 @@
     <!-- FOOTER -->
     <footer class="footer">
       <div>
-        <p class="foot-note" style="margin:0">Set in Instrument Serif &amp; Instrument Sans.</p>
+        <p class="foot-note" style="margin:0">Set in Fraunces &amp; Inter.</p>
         <div class="footer-links">
           <button onclick="openModal('privacy')" type="button">Privacy Policy</button>
           <span>•</span>
@@ -704,7 +710,7 @@
       <span class="modal-kicker">Document 01</span>
       <h3 class="modal-title">Privacy Policy</h3>
 
-      <div class="modal-body modal-scroll">
+      <div class="modal-body modal-scroll" data-lenis-prevent>
         <p style="color:#fff;font-weight:600;margin:0">Last updated: August 25, 2026</p>
         <p>BeatWave is developed by BeatLabs. Your library, cache, habits, and preferences are an offline-first workspace that stays exactly where it belongs — on your device.</p>
 
@@ -737,7 +743,7 @@
       <span class="modal-kicker">Document 02</span>
       <h3 class="modal-title">Terms of Conditions</h3>
 
-      <div class="modal-body modal-scroll">
+      <div class="modal-body modal-scroll" data-lenis-prevent>
         <p style="color:#fff;font-weight:600;margin:0">Last updated: August 25, 2026</p>
         <p>By downloading, building, or using BeatWave you agree to the following conditions. If you do not accept them, do not run the software.</p>
 
@@ -784,10 +790,12 @@
     function openModal(id){
       document.getElementById(id + '-modal').hidden = false;
       document.body.style.overflow = 'hidden';
+      if (window.__lenis) window.__lenis.stop();
     }
     function closeModal(id){
       document.getElementById(id + '-modal').hidden = true;
       document.body.style.overflow = '';
+      if (window.__lenis) window.__lenis.start();
     }
     window.addEventListener('click', function(e){
       ['privacy-modal','terms-modal'].forEach(function(id){
@@ -989,6 +997,20 @@
       checkCookieConsent();
       fetchData();
     });
+  </script>
+  <!-- Lenis smooth scroll (progressive enhancement) -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+  <script>
+    (function () {
+      if (typeof Lenis === 'undefined') return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      window.__lenis = new Lenis({
+        duration: 1.05,
+        easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+        smoothWheel: true,
+        autoRaf: true
+      });
+    })();
   </script>
 </body>
 </html>
