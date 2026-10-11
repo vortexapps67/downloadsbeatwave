@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- Primary SEO Meta Tags -->
   <title>BeatWave - Download Liquid Glass Audio Player for Android</title>
   <meta name="description" content="Download BeatWave, the next-generation offline music player for Android featuring a beautiful Liquid Glass interface, lossless audio support, YouTube Music integration, and Listen Together local sync.">
   <meta name="keywords" content="BeatWave, download apk, android music player, local music player, glassmorphism, media3, lossless audio, youtube music adfree, listen together local server, BeatLabs">
   <meta name="author" content="BeatLabs">
   <meta name="robots" content="index, follow">
-  
+
   <!-- Open Graph / Facebook (SEO) -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="BeatWave - Download Liquid Glass Audio Player for Android">
@@ -24,17 +24,18 @@
   <meta name="twitter:title" content="BeatWave - Download Liquid Glass Audio Player for Android">
   <meta name="twitter:description" content="Download the latest BeatWave APK. Frosted liquid glass design, lossless audio, and zero ads.">
   <meta name="twitter:image" content="ic_launcher-playstore.png">
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="ic_launcher-playstore.png">
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <!-- Google Fonts: Instrument Serif (display) + Instrument Sans (UI / body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <!-- Schema.org Structured Data (SEO) -->
   <script type="application/ld+json">
     {
@@ -54,434 +55,707 @@
     }
   </script>
 
-  <!-- Tailwind Config -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
-            display: ['Outfit', 'sans-serif'],
-          },
-          animation: {
-            'aurora-slow': 'aurora 25s ease infinite alternate',
-            'aurora-medium': 'aurora 18s ease infinite alternate-reverse',
-            'float': 'float 6s ease-in-out infinite',
-          },
-          keyframes: {
-            aurora: {
-              '0%': { transform: 'translate(0px, 0px) scale(1) rotate(0deg)' },
-              '33%': { transform: 'translate(30px, -50px) scale(1.1) rotate(120deg)' },
-              '66%': { transform: 'translate(-20px, 20px) scale(0.95) rotate(240deg)' },
-              '100%': { transform: 'translate(0px, 0px) scale(1) rotate(360deg)' }
-            },
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-8px)' },
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>document.documentElement.classList.add('js');</script>
+
   <style>
-    body {
-      background-color: #03030c;
-    }
-    
-    .glass-panel {
-      background: rgba(10, 11, 24, 0.45);
-      backdrop-filter: blur(20px) saturate(190%);
-      -webkit-backdrop-filter: blur(20px) saturate(190%);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.7), 
-                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
-    }
-    
-    .glass-card {
-      background: rgba(15, 17, 34, 0.3);
-      backdrop-filter: blur(14px) saturate(170%);
-      -webkit-backdrop-filter: blur(14px) saturate(170%);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), 
-                  inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
-      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    
-    .glass-card:hover {
-      background: rgba(25, 28, 52, 0.45);
-      border-color: rgba(168, 85, 247, 0.35);
-      transform: translateY(-5px);
-      box-shadow: 0 30px 50px -12px rgba(147, 51, 234, 0.18),
-                  inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
-    }
-    
-    .text-glow {
-      text-shadow: 0 0 30px rgba(192, 132, 252, 0.3);
+    /* ============================================================ */
+    /*  TOKENS — warm "editorial noir" glass + brass accent          */
+    /* ============================================================ */
+    :root{
+      --bg:#0a0908;
+      --bg-2:#100e0b;
+      --ink:#f6f1e7;
+      --muted:rgba(246,241,231,.60);
+      --faint:rgba(246,241,231,.36);
+      --line:rgba(246,241,231,.13);
+      --glass:rgba(26,22,19,.55);
+
+      --brass:#d9a24a;
+      --brass-lt:#eccf93;
+      --clay:#c2624a;
+
+      --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+      --sans:'Instrument Sans',system-ui,-apple-system,Segoe UI,sans-serif;
+
+      --r:20px;
+      --ease:cubic-bezier(.22,1,.36,1);
+      --panel-shadow:0 30px 70px -30px rgba(0,0,0,.95), inset 0 1px 1px rgba(255,246,230,.13), inset 0 -1px 0 rgba(255,246,230,.03);
     }
 
-    /* Custom scrollbar for glass modals */
-    .glass-scrollbar::-webkit-scrollbar {
-      width: 6px;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100vh;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:var(--sans);
+      font-size:15.5px;
+      font-optical-sizing:auto;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
     }
-    .glass-scrollbar::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.02);
-      border-radius: 9999px;
+    ::selection{background:rgba(217,162,74,.85);color:#1a1408}
+    :focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:6px}
+    img{max-width:100%}
+    a{color:inherit}
+
+    /* ============================================================ */
+    /*  AMBIENT LIGHT — warm, restrained, no neon                    */
+    /* ============================================================ */
+    body::before{
+      content:"";
+      position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:
+        radial-gradient(1000px 680px at 6% -14%, rgba(217,162,74,.20), transparent 62%),
+        radial-gradient(820px 600px at 102% 4%, rgba(194,98,74,.14), transparent 60%),
+        radial-gradient(1300px 1000px at 50% 128%, rgba(120,92,48,.18), transparent 64%),
+        linear-gradient(180deg,#0a0908 0%,#0b0a09 40%,#0d0b09 100%);
     }
-    .glass-scrollbar::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 9999px;
-    }
-    .glass-scrollbar::-webkit-scrollbar-thumb:hover {
-      background: rgba(255, 255, 255, 0.2);
+    .glow{position:fixed;border-radius:50%;filter:blur(130px);pointer-events:none;z-index:0;opacity:.5}
+    .glow.a{top:-20%;left:-18%;width:56vw;height:56vw;background:radial-gradient(circle,rgba(217,162,74,.55),transparent 70%);animation:drift1 30s ease-in-out infinite alternate}
+    .glow.b{bottom:-26%;right:-16%;width:62vw;height:62vw;background:radial-gradient(circle,rgba(194,98,74,.42),transparent 70%);animation:drift2 36s ease-in-out infinite alternate}
+    .glow.c{top:32%;right:4%;width:40vw;height:40vw;background:radial-gradient(circle,rgba(150,112,60,.38),transparent 70%);animation:drift1 24s ease-in-out infinite alternate-reverse}
+    @keyframes drift1{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(44px,-56px,0) scale(1.12)}}
+    @keyframes drift2{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-52px,40px,0) scale(1.08)}}
+
+    /* Fine film grain so the smoked glass has texture to refract */
+    body::after{
+      content:"";
+      position:fixed;inset:0;z-index:1;pointer-events:none;
+      opacity:.04;mix-blend-mode:overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* Cookie Banner rules */
-    .cookie-container {
-      background: rgba(10, 11, 24, 0.75);
-      backdrop-filter: blur(24px) saturate(190%);
-      -webkit-backdrop-filter: blur(24px) saturate(190%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 24px;
-      box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.8), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+    /* ============================================================ */
+    /*  LAYOUT                                                       */
+    /* ============================================================ */
+    .wrap{position:relative;z-index:2;width:min(1080px,100%);margin:0 auto;padding:0 clamp(16px,4vw,26px) 100px}
+
+    .nav{
+      position:sticky;top:0;z-index:60;
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      width:min(1080px,100%);margin:0 auto;padding:18px clamp(16px,4vw,26px);
     }
-    .cookie-decline-btn {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.75);
-      border-radius: 12px;
+    .nav-brand{display:inline-flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:400;font-size:20px;letter-spacing:-.01em;text-decoration:none;color:var(--ink)}
+    .nav-brand .mark{width:9px;height:9px;border-radius:50%;background:var(--brass);box-shadow:0 0 0 4px rgba(217,162,74,.16)}
+    .nav-switch{
+      display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:999px;text-decoration:none;
+      font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,241,231,.78);
+      background:rgba(255,246,230,.04);border:1px solid var(--line);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+      transition:background .35s var(--ease),border-color .35s var(--ease),color .35s var(--ease),transform .35s var(--ease)
     }
-    .cookie-decline-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: #ffffff;
+    .nav-switch:hover{background:rgba(217,162,74,.14);border-color:rgba(217,162,74,.45);color:#fff;transform:translateY(-2px)}
+
+    /* ============================================================ */
+    /*  HERO                                                         */
+    /* ============================================================ */
+    .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:52px 0 6px}
+
+    .logo-tile{
+      position:relative;padding:9px;border-radius:30px;
+      background:linear-gradient(155deg,rgba(255,246,230,.14),rgba(255,246,230,.02));
+      border:1px solid rgba(255,246,230,.14);
+      box-shadow:0 30px 70px -26px rgba(0,0,0,.95),0 0 70px rgba(217,162,74,.22),inset 0 1px 1px rgba(255,246,230,.28);
+      backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);
     }
-    .cookie-accept-btn {
-      background: linear-gradient(to right, #9333ea, #db2777);
-      color: #ffffff;
-      border-radius: 12px;
-      border: none;
-      box-shadow: 0 6px 20px -6px rgba(168, 85, 247, 0.5);
+    .logo-tile::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;mix-blend-mode:screen;background:linear-gradient(135deg,rgba(255,246,230,.34),transparent 48%)}
+    .logo-tile img{display:block;width:clamp(100px,25vw,124px);height:clamp(100px,25vw,124px);border-radius:22px;object-fit:cover}
+
+    .kicker{margin:30px 0 0;font-size:11px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:rgba(236,207,147,.82)}
+    .kicker .sep{opacity:.45;margin:0 .35em}
+
+    .wordmark{
+      margin:14px 0 0;font-family:var(--serif);font-weight:400;letter-spacing:-.025em;line-height:.92;
+      font-size:clamp(3.5rem,12vw,7rem);
+      background:linear-gradient(170deg,#fbf7ee 0%,#f6f1e7 42%,#eccf93 100%);
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+      filter:drop-shadow(0 14px 44px rgba(217,162,74,.22));
     }
-    .cookie-accept-btn:hover {
-      background: linear-gradient(to right, #a855f7, #ec4899);
-      box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
-      transform: scale(1.02);
+    .wordmark em{font-style:italic}
+    .lede{margin:20px 0 0;max-width:600px;color:var(--muted);font-size:clamp(.98rem,2.3vw,1.08rem);line-height:1.7;font-weight:400}
+
+    .waveform{display:flex;align-items:center;justify-content:center;gap:4px;height:52px;margin:34px 0 4px;max-width:520px}
+    .waveform i{
+      display:block;width:3px;border-radius:99px;transform-origin:center;
+      background:linear-gradient(180deg,var(--brass-lt),var(--clay));
+      animation:eq 1.15s var(--ease) infinite alternate;
+      opacity:.85;
+    }
+    @keyframes eq{from{transform:scaleY(.22)}to{transform:scaleY(1)}}
+
+    .cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:26px}
+    .btn-primary{
+      position:relative;display:inline-flex;align-items:center;gap:12px;padding:16px 26px;border-radius:999px;
+      text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.01em;color:#1c1509;
+      background:linear-gradient(100deg,#eccf93,#d9a24a 48%,#c98a3d);background-size:200% auto;
+      box-shadow:0 18px 44px -18px rgba(217,162,74,.75),inset 0 1px 1px rgba(255,255,255,.5);
+      transition:background-position .7s var(--ease),transform .35s var(--ease),box-shadow .4s var(--ease)
+    }
+    .btn-primary:hover{background-position:right center;transform:translateY(-2px);box-shadow:0 24px 58px -18px rgba(217,162,74,.95),inset 0 1px 1px rgba(255,255,255,.6)}
+    .btn-primary:active{transform:translateY(0) scale(.99)}
+    .btn-primary .pill{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:rgba(28,21,9,.16);border:1px solid rgba(28,21,9,.18);padding:3px 9px;border-radius:999px}
+    .btn-ghost{
+      display:inline-flex;align-items:center;gap:10px;padding:16px 22px;border-radius:999px;text-decoration:none;font-weight:500;font-size:14px;color:var(--ink);
+      background:rgba(255,246,230,.04);border:1px solid var(--line);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+      transition:background .35s var(--ease),border-color .35s var(--ease),transform .35s var(--ease)
+    }
+    .btn-ghost:hover{background:rgba(255,246,230,.08);border-color:rgba(217,162,74,.42);transform:translateY(-2px)}
+
+    .status{
+      display:inline-flex;align-items:center;gap:9px;margin-top:24px;padding:8px 16px;border-radius:999px;
+      background:rgba(255,246,230,.04);border:1px solid var(--line);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+      font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(236,207,147,.82)
+    }
+    .dot{width:6px;height:6px;border-radius:50%;flex:none;background:var(--brass);box-shadow:0 0 0 3px rgba(217,162,74,.2);animation:pulse 1.8s ease-in-out infinite}
+    .dot.ok{background:#8fae7a;box-shadow:0 0 0 3px rgba(143,174,122,.22)}
+    .dot.warn{background:var(--clay);box-shadow:0 0 0 3px rgba(194,98,74,.22)}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+    /* ============================================================ */
+    /*  SECTIONS + PANEL                                             */
+    /* ============================================================ */
+    section{margin-top:38px}
+    .panel{
+      position:relative;padding:clamp(24px,4.4vw,46px);overflow:hidden;
+      background:linear-gradient(160deg,rgba(255,246,230,.07),rgba(255,246,230,.012) 44%,transparent),var(--glass);
+      backdrop-filter:blur(26px) saturate(160%);-webkit-backdrop-filter:blur(26px) saturate(160%);
+      border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--panel-shadow)
+    }
+    .panel::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(130% 70% at 50% -16%,rgba(255,246,230,.12),transparent 62%)}
+    .panel > *{position:relative}
+
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:10.5px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--brass)}
+    .eyebrow::before{content:"";width:22px;height:1px;background:linear-gradient(90deg,var(--brass),transparent)}
+    .title{margin:14px 0 0;font-family:var(--serif);font-weight:400;letter-spacing:-.015em;font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.05}
+    .title em{font-style:italic;color:var(--brass-lt)}
+    .sub{margin:12px 0 0;color:var(--muted);font-size:.94rem;line-height:1.7;max-width:540px}
+    .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;flex-wrap:wrap}
+
+    /* ============================================================ */
+    /*  STATS CONSOLE                                                */
+    /* ============================================================ */
+    .stat-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:1px;margin-top:30px;
+      background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+    .stat{background:linear-gradient(160deg,rgba(255,246,230,.045),rgba(255,246,230,.01));padding:26px 24px}
+    .stat .label{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+    .stat .value{margin-top:12px;font-family:var(--serif);font-weight:400;letter-spacing:-.02em;line-height:1}
+    .stat .value.big{
+      font-size:clamp(3rem,8vw,4.6rem);
+      background:linear-gradient(170deg,#fbf7ee,#eccf93);
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent
+    }
+    .stat .value.small{font-size:clamp(1.9rem,5vw,2.6rem);color:var(--ink)}
+    .stat .value.small em{font-style:italic}
+    .stat .foot{margin-top:10px;font-size:.78rem;color:var(--muted)}
+    @media(max-width:760px){.stat-grid{grid-template-columns:1fr}}
+
+    /* ============================================================ */
+    /*  SUPPORT                                                      */
+    /* ============================================================ */
+    .support-grid{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+    .support-copy{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .upi-logo{
+      width:70px;height:70px;flex:none;display:grid;place-items:center;border-radius:18px;
+      background:linear-gradient(160deg,rgba(255,246,230,.11),rgba(255,246,230,.02));
+      border:1px solid var(--line);box-shadow:inset 0 1px 1px rgba(255,246,230,.18)
+    }
+    .upi-logo img{height:40px;width:auto;object-fit:contain}
+    .support-actions{display:flex;flex-direction:column;gap:12px;width:min(330px,100%)}
+    .upi-box{
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      background:rgba(255,246,230,.03);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+      font-size:13px;letter-spacing:.01em;color:rgba(236,207,147,.92);transition:border-color .4s var(--ease),background .4s var(--ease)
+    }
+    .upi-box:hover{border-color:rgba(217,162,74,.42);background:rgba(255,246,230,.05)}
+    .upi-copy{display:inline-flex;align-items:center;gap:7px;background:none;border:0;cursor:pointer;font:inherit;font-size:11px;font-weight:600;color:var(--brass-lt);letter-spacing:.08em;transition:color .3s}
+    .upi-copy:hover{color:#fff}
+    .btn-solid{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 22px;border-radius:999px;text-decoration:none;
+      font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1c1509;
+      background:linear-gradient(120deg,#eccf93,#d9a24a);
+      border:1px solid rgba(217,162,74,.5);box-shadow:0 12px 30px -14px rgba(217,162,74,.75);
+      transition:background .35s var(--ease),transform .35s var(--ease),box-shadow .35s var(--ease)
+    }
+    .btn-solid:hover{background:linear-gradient(120deg,#f4ddab,#e0ad57);transform:translateY(-2px);box-shadow:0 18px 40px -14px rgba(217,162,74,.95)}
+    .btn-solid:active{transform:translateY(0) scale(.99)}
+
+    /* ============================================================ */
+    /*  RELEASES                                                     */
+    /* ============================================================ */
+    .btn-refresh{
+      display:inline-flex;align-items:center;gap:9px;padding:11px 17px;border-radius:999px;cursor:pointer;
+      font:inherit;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);
+      background:rgba(255,246,230,.04);border:1px solid var(--line);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+      transition:background .35s var(--ease),border-color .35s var(--ease),transform .35s var(--ease)
+    }
+    .btn-refresh:hover{background:rgba(217,162,74,.13);border-color:rgba(217,162,74,.42);transform:translateY(-2px)}
+    .btn-refresh .fa-spin{display:inline-block}
+
+    #releases-container{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}
+    @media(max-width:720px){#releases-container{grid-template-columns:1fr}}
+
+    .release-card{
+      position:relative;display:flex;flex-direction:column;gap:18px;padding:24px;border-radius:18px;overflow:hidden;
+      background:linear-gradient(160deg,rgba(255,246,230,.055),rgba(255,246,230,.01) 46%,transparent),rgba(20,17,14,.42);
+      backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);
+      border:1px solid rgba(255,246,230,.08);
+      box-shadow:0 12px 40px -20px rgba(0,0,0,.75),inset 0 1px 0 rgba(255,246,230,.07);
+      transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease),background .5s var(--ease);
+      animation:cardIn .6s var(--ease) both;animation-delay:var(--d,0ms)
+    }
+    .release-card::after{
+      content:"";position:absolute;inset:0;pointer-events:none;transform:translateX(-120%);
+      background:linear-gradient(90deg,transparent,rgba(255,246,230,.08),transparent);
+      transition:transform .9s var(--ease)
+    }
+    .release-card:hover{
+      transform:translateY(-6px);border-color:rgba(217,162,74,.42);
+      background:linear-gradient(160deg,rgba(255,246,230,.085),rgba(255,246,230,.02) 46%,transparent),rgba(30,25,18,.55);
+      box-shadow:0 34px 60px -24px rgba(217,162,74,.28),inset 0 1px 1px rgba(255,246,230,.14)
+    }
+    .release-card:hover::after{transform:translateX(120%)}
+    @keyframes cardIn{from{opacity:0;translate:0 16px}to{opacity:1;translate:0 0}}
+
+    .rc-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .rc-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-lt);background:rgba(217,162,74,.12);border:1px solid rgba(217,162,74,.28);padding:5px 10px;border-radius:8px}
+    .rc-date{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums}
+    .rc-name{margin:0;font-size:.92rem;font-weight:500;letter-spacing:.005em;color:rgba(246,241,231,.9);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s}
+    .release-card:hover .rc-name{color:var(--brass-lt)}
+    .rc-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding-top:18px;border-top:1px solid rgba(255,246,230,.08)}
+    .rc-label{font-size:9.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+    .rc-num{display:block;margin-top:6px;font-family:var(--serif);font-weight:400;font-size:1.85rem;letter-spacing:-.02em;line-height:1;
+      background:linear-gradient(170deg,#fbf7ee,#eccf93);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .rc-unit{font-style:normal;font-family:var(--sans);font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);-webkit-text-fill-color:var(--faint);margin-left:6px}
+    .btn-mini{
+      display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;text-decoration:none;white-space:nowrap;
+      font-size:12px;font-weight:600;letter-spacing:.02em;color:rgba(246,241,231,.9);
+      background:rgba(255,246,230,.04);border:1px solid var(--line);
+      transition:background .35s var(--ease),border-color .35s var(--ease),color .35s var(--ease),transform .35s var(--ease),box-shadow .35s var(--ease)
+    }
+    .btn-mini:hover{background:linear-gradient(120deg,#eccf93,#d9a24a);border-color:rgba(217,162,74,.6);color:#1c1509;transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(217,162,74,.8)}
+    .btn-mini:active{transform:translateY(0) scale(.98)}
+
+    .loader{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:70px 0;color:var(--faint)}
+    .loader i{font-size:30px;color:var(--brass)}
+    .loader p{margin:0;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+
+    /* ============================================================ */
+    /*  FAQ                                                          */
+    /* ============================================================ */
+    .faq-list{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+    .faq-card{
+      background:rgba(20,17,14,.42);backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);
+      border:1px solid rgba(255,246,230,.08);border-radius:16px;overflow:hidden;
+      box-shadow:inset 0 1px 0 rgba(255,246,230,.05);
+      transition:border-color .4s var(--ease),background .4s var(--ease)
+    }
+    .faq-card:hover{border-color:rgba(217,162,74,.4);background:rgba(30,25,18,.5)}
+    .faq-head{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;text-align:left;
+      padding:21px 24px;background:none;border:0;color:var(--ink);font:inherit;font-weight:500;font-size:1rem;letter-spacing:.005em;cursor:pointer
+    }
+    .faq-icon{
+      flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;
+      background:rgba(255,246,230,.05);border:1px solid var(--line);color:var(--brass);
+      transition:transform .45s var(--ease),background .3s var(--ease)
+    }
+    .faq-card.open .faq-icon{transform:rotate(135deg);background:rgba(217,162,74,.18)}
+    .faq-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+    .faq-card.open .faq-body{grid-template-rows:1fr}
+    .faq-inner{overflow:hidden}
+    .faq-inner p{margin:0;padding:0 24px 24px;color:var(--muted);font-size:.92rem;line-height:1.75}
+    .faq-inner code{font-family:var(--sans);font-weight:600;font-size:.85em;background:rgba(255,246,230,.07);padding:2px 6px;border-radius:6px;color:var(--brass-lt)}
+
+    /* ============================================================ */
+    /*  FOOTER                                                       */
+    /* ============================================================ */
+    .footer{
+      margin-top:58px;padding-top:28px;border-top:1px solid var(--line);
+      display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+      color:var(--faint);font-size:.82rem
+    }
+    .footer .foot-note{font-family:var(--serif);font-size:1rem;font-style:italic;color:rgba(246,241,231,.7)}
+    .footer-links{display:flex;gap:14px;margin-top:12px;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(236,207,147,.6)}
+    .footer-links button{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;transition:color .25s}
+    .footer-links button:hover{color:var(--brass-lt)}
+    .footer-right{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .india{
+      display:inline-flex;align-items:center;gap:10px;padding:9px 15px;border-radius:999px;
+      background:rgba(255,246,230,.03);border:1px solid var(--line);
+      font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)
+    }
+    .india img{height:20px;width:auto;object-fit:contain;opacity:.9}
+    .icon-link{font-size:18px;color:rgba(246,241,231,.5);transition:color .3s var(--ease),transform .3s var(--ease)}
+    .icon-link:hover{color:var(--brass);transform:translateY(-2px)}
+
+    /* ============================================================ */
+    /*  COOKIE BANNER                                                */
+    /* ============================================================ */
+    .cookie-container{
+      background:linear-gradient(160deg,rgba(255,246,230,.085),rgba(255,246,230,.015) 46%,transparent),rgba(14,12,10,.85);
+      backdrop-filter:blur(26px) saturate(160%);-webkit-backdrop-filter:blur(26px) saturate(160%);
+      border:1px solid var(--line);border-radius:20px;padding:22px;
+      box-shadow:0 34px 70px -20px rgba(0,0,0,.95),inset 0 1px 1px rgba(255,246,230,.15)
+    }
+    .cookie-row{display:flex;align-items:flex-start;gap:14px}
+    .cookie-icon{font-size:22px;line-height:1;user-select:none}
+    .cookie-title{margin:0;font-family:var(--serif);font-size:1.15rem;font-weight:400}
+    .cookie-text{margin:8px 0 0;font-size:11.5px;line-height:1.65;color:var(--muted)}
+    .cookie-actions{display:flex;justify-content:flex-end;gap:11px;margin-top:18px}
+    .btn-decline,.btn-accept{
+      border-radius:999px;cursor:pointer;font:inherit;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:10px 18px;
+      transition:background .3s var(--ease),border-color .3s var(--ease),color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease)
+    }
+    .btn-decline{color:rgba(246,241,231,.78);background:rgba(255,246,230,.04);border:1px solid var(--line)}
+    .btn-decline:hover{background:rgba(255,246,230,.09);color:#fff}
+    .btn-accept{
+      color:#1c1509;border:1px solid rgba(217,162,74,.5);background:linear-gradient(120deg,#eccf93,#d9a24a);
+      box-shadow:0 10px 26px -12px rgba(217,162,74,.75)
+    }
+    .btn-accept:hover{background:linear-gradient(120deg,#f4ddab,#e0ad57);transform:translateY(-2px);box-shadow:0 14px 36px -12px rgba(217,162,74,.95)}
+
+    /* ============================================================ */
+    /*  MODALS                                                       */
+    /* ============================================================ */
+    .modal-overlay{
+      position:fixed;inset:0;z-index:70;display:flex;align-items:center;justify-content:center;padding:16px;
+      background:rgba(6,5,4,.74);backdrop-filter:blur(10px) saturate(130%);-webkit-backdrop-filter:blur(10px) saturate(130%)
+    }
+    .modal-card{
+      position:relative;display:flex;flex-direction:column;width:100%;max-width:680px;max-height:82vh;padding:clamp(24px,4vw,38px);
+      background:linear-gradient(160deg,rgba(255,246,230,.075),rgba(255,246,230,.012) 40%,transparent),rgba(14,12,10,.78);
+      backdrop-filter:blur(28px) saturate(160%);-webkit-backdrop-filter:blur(28px) saturate(160%);
+      border:1px solid var(--line);border-radius:22px;
+      box-shadow:0 40px 90px -30px rgba(0,0,0,.95),inset 0 1px 1px rgba(255,246,230,.14);
+      color:var(--muted);animation:riseIn .5s var(--ease) both
+    }
+    @keyframes riseIn{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
+    .modal-close{
+      position:absolute;top:20px;right:20px;width:34px;height:34px;display:grid;place-items:center;border-radius:50%;
+      background:rgba(255,246,230,.05);border:1px solid var(--line);color:rgba(246,241,231,.6);cursor:pointer;
+      transition:background .3s var(--ease),color .3s var(--ease),transform .35s var(--ease)
+    }
+    .modal-close:hover{background:rgba(217,162,74,.18);color:#fff;transform:rotate(90deg)}
+    .modal-kicker{font-size:10px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--brass)}
+    .modal-title{margin:10px 0 0;font-family:var(--serif);font-size:clamp(1.7rem,4.4vw,2.4rem);font-weight:400;letter-spacing:-.015em;color:#fff}
+    .modal-body{overflow-y:auto;margin-top:24px;padding-right:12px;font-size:.89rem;line-height:1.8}
+    .modal-body > * + *{margin-top:14px}
+    .modal-body h4{margin:24px 0 0;padding-left:14px;border-left:2px solid var(--brass);color:#fff;font-family:var(--serif);font-weight:400;font-size:1.15rem;letter-spacing:-.01em}
+    .modal-body ul{margin:14px 0 0;padding-left:20px;font-size:12.5px;color:rgba(236,207,147,.9)}
+    .modal-body li + li{margin-top:7px}
+    .modal-foot{display:flex;justify-content:flex-end;margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
+    .modal-foot button{
+      padding:11px 20px;border-radius:999px;cursor:pointer;font:inherit;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+      color:var(--ink);background:rgba(255,246,230,.04);border:1px solid var(--line);
+      transition:background .3s var(--ease),transform .3s var(--ease),border-color .3s var(--ease),color .3s var(--ease)
+    }
+    .modal-foot button:hover{background:rgba(217,162,74,.16);border-color:rgba(217,162,74,.45);color:#fff;transform:translateY(-2px)}
+    .modal-scroll::-webkit-scrollbar{width:8px}
+    .modal-scroll::-webkit-scrollbar-track{background:rgba(255,246,230,.02);border-radius:9999px}
+    .modal-scroll::-webkit-scrollbar-thumb{background:linear-gradient(180deg,rgba(217,162,74,.6),rgba(194,98,74,.5));border-radius:9999px}
+    .modal-scroll::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,rgba(236,207,147,.8),rgba(217,162,74,.7))}
+
+    [hidden]{display:none !important}
+
+    /* ============================================================ */
+    /*  ENTRANCE                                                     */
+    /* ============================================================ */
+    .js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+    .js .reveal.in{opacity:1;transform:none}
+
+    /* ============================================================ */
+    /*  MOTION PREFERENCES                                           */
+    /* ============================================================ */
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+      .js .reveal{opacity:1;transform:none}
     }
   </style>
 </head>
-<body class="text-white min-h-screen overflow-x-hidden font-sans selection:bg-purple-600 selection:text-white relative">
-  <!-- Dynamic Glowing Aurora Background Canvas -->
-  <div class="fixed top-[-20%] left-[-20%] w-[70%] h-[70%] bg-indigo-600/15 rounded-full blur-[130px] pointer-events-none animate-aurora-slow"></div>
-  <div class="fixed bottom-[-20%] right-[-15%] w-[80%] h-[80%] bg-purple-600/10 rounded-full blur-[150px] pointer-events-none animate-aurora-medium"></div>
-  <div class="fixed top-[30%] right-[5%] w-[50%] h-[50%] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none animate-aurora-slow" style="animation-delay: -5s;"></div>
+<body>
+  <!-- Ambient light -->
+  <div class="glow a" aria-hidden="true"></div>
+  <div class="glow b" aria-hidden="true"></div>
+  <div class="glow c" aria-hidden="true"></div>
 
-  <div class="container mx-auto px-4 py-16 max-w-5xl relative z-10">
-    <!-- Header -->
-    <header class="flex flex-col items-center text-center mb-16 animate-float">
-      <div class="relative mb-8 group">
-        <!-- Soft purple/cyan aura pulse behind logo -->
-        <div class="absolute -inset-2 bg-gradient-to-r from-purple-500 via-fuchsia-500 to-cyan-400 rounded-[36px] blur-xl opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-        <!-- Logo container - Made Larger (w-36 h-36) -->
-        <div class="relative bg-[#070815] p-3 rounded-[32px] border border-white/15 shadow-2xl transition duration-500 group-hover:scale-105">
-          <img src="ic_launcher-playstore.png" alt="BeatWave Logo" class="w-36 h-36 rounded-[22px] object-cover" onerror="this.src='https://github.com/beatlabs790/BeatWave/raw/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png'">
-        </div>
+  <!-- Top bar -->
+  <nav class="nav">
+    <a href="#" class="nav-brand"><span class="mark" aria-hidden="true"></span> BeatWave</a>
+    <a href="brutalism.html" class="nav-switch">Brutalism <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+  </nav>
+
+  <div class="wrap">
+    <!-- HERO -->
+    <header class="hero reveal">
+      <div class="logo-tile">
+        <img src="ic_launcher-playstore.png" alt="BeatWave app icon" onerror="this.src='https://github.com/beatlabs790/BeatWave/raw/main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png'">
       </div>
-      <h1 class="font-display text-5xl sm:text-7xl font-extrabold tracking-tight mb-4">
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-100 to-purple-400">BeatWave</span>
-      </h1>
-      <p class="text-purple-300/60 font-medium tracking-widest text-xs sm:text-sm uppercase mb-8">
-        Liquid Glass Audio Playback for Android
+
+      <p class="kicker">Offline<span class="sep">·</span>Lossless<span class="sep">·</span>Ad-free</p>
+      <h1 class="wordmark">Beat<em>Wave</em></h1>
+      <p class="lede">
+        An Android music player wrapped in liquid glass — FLAC and WAV playback, YouTube Music imports,
+        and Listen Together sync across your local network. No accounts, no ads, no telemetry.
       </p>
 
-      <!-- Prominent HERO Download Latest button -->
-      <div class="flex justify-center mb-8">
-        <a id="hero-download-btn" href="https://github.com/beatlabs790/BeatWave/releases" target="_blank" 
-           class="px-8 py-4 bg-gradient-to-r from-purple-600 via-fuchsia-600 to-cyan-500 hover:from-purple-500 hover:via-fuchsia-500 hover:to-cyan-400 rounded-2xl font-bold tracking-wide shadow-lg shadow-purple-900/40 hover:shadow-[0_0_40px_rgba(168,85,247,0.5)] transition duration-300 transform active:scale-95 flex items-center gap-3">
-          <i class="fa-solid fa-download text-lg"></i> Download Latest Version
+      <div class="waveform" id="waveform" aria-hidden="true"></div>
+
+      <div class="cta">
+        <a id="hero-download-btn" class="btn-primary" href="https://github.com/beatlabs790/BeatWave/releases" target="_blank" rel="noopener">
+          <i class="fa-solid fa-download"></i> Download latest APK <span class="pill" id="hero-tag">v5.1.0</span>
+        </a>
+        <a class="btn-ghost" href="https://github.com/beatlabs790/BeatWave" target="_blank" rel="noopener">
+          <i class="fa-brands fa-github"></i> View source
         </a>
       </div>
 
-      <div class="flex items-center gap-2 text-[11px] font-medium tracking-wider uppercase bg-white/5 border border-white/10 rounded-full py-1.5 px-5 text-purple-200/70 inline-flex">
-        <i class="fa-solid fa-circle text-cyan-400 animate-pulse text-[7px] mr-1"></i>
-        <span id="api-status">Connecting to GitHub API...</span>
+      <div class="status">
+        <span class="dot" id="indicator" aria-hidden="true"></span>
+        <span id="api-status">Connecting to GitHub…</span>
       </div>
     </header>
 
-    <!-- Combined Total Card -->
-    <section class="mb-12">
-      <div class="glass-panel rounded-3xl p-8 sm:p-14 relative overflow-hidden">
-        <!-- Subtle grid background details inside the panel -->
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
-        <div class="absolute right-[-15%] top-[-25%] w-[450px] h-[450px] bg-gradient-to-br from-purple-500/15 via-cyan-500/5 to-transparent rounded-full blur-3xl pointer-events-none"></div>
-        
-        <div class="relative flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+    <!-- STATS -->
+    <section class="reveal">
+      <div class="panel">
+        <span class="eyebrow">Release telemetry</span>
+        <div class="sec-head" style="margin-top:14px">
           <div>
-            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-400 bg-cyan-950/40 border border-cyan-500/20 rounded-full px-4 py-1.5">System Overview</span>
-            <h2 class="text-3xl sm:text-5xl font-extrabold font-display tracking-tight mt-5 mb-3">Total Downloads</h2>
-            <p class="text-white/50 text-sm sm:text-base max-w-lg leading-relaxed">Combined release metrics calculated dynamically from assets published to official repositories.</p>
+            <h2 class="title">Total <em>downloads</em></h2>
+            <p class="sub">Every APK ever published to the release channel, summed live from GitHub release assets.</p>
           </div>
-          
-          <div class="flex items-center gap-4 bg-white/[0.02] border border-white/5 rounded-2xl p-6 sm:p-8 min-w-[280px] justify-center lg:justify-start shadow-inner">
-            <i class="fa-solid fa-arrow-down-long text-cyan-400 text-3xl mr-1 self-center bg-cyan-950/30 p-3 rounded-xl border border-cyan-500/20"></i>
-            <div>
-              <span id="total-count" class="font-display text-5xl sm:text-6xl font-black text-glow tracking-tighter bg-gradient-to-r from-white via-purple-300 to-cyan-300 bg-clip-text text-transparent">0</span>
-              <p class="text-[10px] font-bold uppercase tracking-widest text-purple-300/70 mt-1">Acquired APKs</p>
-            </div>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat">
+            <span class="label">Combined total</span>
+            <div class="value big"><span id="total-count">0</span></div>
+            <div class="foot">APK downloads across all versions</div>
+          </div>
+          <div class="stat">
+            <span class="label">Published builds</span>
+            <div class="value small" id="stat-releases">—</div>
+            <div class="foot">Release assets indexed</div>
+          </div>
+          <div class="stat">
+            <span class="label">Latest version</span>
+            <div class="value small" id="stat-latest">—</div>
+            <div class="foot">Newest APK on the channel</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- UPI Support Section -->
-    <section class="mb-12">
-      <div class="glass-panel rounded-3xl p-8 sm:p-10 relative overflow-hidden">
-        <div class="absolute right-[-10%] bottom-[-20%] w-80 h-80 bg-gradient-to-tr from-pink-500/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
-        <div class="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
-          <div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
-            <div class="bg-white/10 p-4 rounded-2xl border border-white/10 shadow-lg shrink-0">
-              <img src="upi logo.png" alt="UPI Logo" class="h-12 w-auto object-contain" onerror="this.style.display='none'">
+    <!-- SUPPORT -->
+    <section class="reveal">
+      <div class="panel">
+        <div class="support-grid">
+          <div class="support-copy">
+            <div class="upi-logo">
+              <img src="upi logo.png" alt="UPI" onerror="this.style.display='none'">
             </div>
             <div>
-              <h3 class="font-display text-2xl font-bold tracking-tight text-white mb-1">Support BeatWave Development</h3>
-              <p class="text-white/50 text-sm max-w-md">BeatWave is open-source and ad-free. Keep lossless music playback running with a tip or donation.</p>
+              <h2 class="title" style="font-size:clamp(1.5rem,3.6vw,2.1rem)">Support <em>BeatWave</em></h2>
+              <p class="sub" style="margin-top:10px;max-width:420px">Open-source, ad-free, and built in the open. A small UPI tip keeps the playback engines running.</p>
             </div>
           </div>
-          
-          <div class="flex flex-col items-center sm:items-stretch gap-3 w-full md:w-auto min-w-[280px]">
-            <!-- UPI Copy Box -->
-            <div class="bg-white/5 border border-white/10 rounded-xl py-3 px-4 flex items-center justify-between gap-4">
-              <div class="font-mono text-xs text-purple-200/90 truncate selection:bg-purple-600">
-                akshanshsinha67@axl
-              </div>
-              <button onclick="copyUPI()" class="text-xs text-cyan-400 hover:text-cyan-300 flex items-center gap-1 font-semibold transition">
+
+          <div class="support-actions">
+            <div class="upi-box">
+              <span>akshanshsinha67@axl</span>
+              <button class="upi-copy" onclick="copyUPI()" type="button">
                 <i id="copy-icon" class="fa-regular fa-copy"></i> <span id="copy-text">Copy</span>
               </button>
             </div>
-            <!-- Vercel Portal Link -->
-            <a href="https://support-akshansh.vercel.app" target="_blank" 
-               class="bg-purple-600 hover:bg-purple-500 active:scale-95 text-white text-xs font-bold text-center py-3.5 px-6 rounded-xl border border-purple-500/30 transition shadow-lg shadow-purple-900/20 flex items-center justify-center gap-2">
-              Visit Support Portal <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            <a class="btn-solid" href="https://support-akshansh.vercel.app" target="_blank" rel="noopener">
+              Visit support portal <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:10px"></i>
             </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Version Counter List Section -->
-    <section>
-      <div class="flex items-center justify-between mb-10">
-        <h3 class="font-display text-xl sm:text-3xl font-extrabold tracking-tight flex items-center gap-3">
-          <i class="fa-solid fa-shapes text-purple-400 text-lg sm:text-xl"></i>
-          Releases Breakdown
-        </h3>
-        <button onclick="fetchData()" class="text-xs bg-white/5 hover:bg-white/10 active:scale-95 border border-white/10 hover:border-purple-500/20 transition duration-300 rounded-xl py-2.5 px-4 flex items-center gap-2 font-medium tracking-wide">
+    <!-- RELEASES -->
+    <section class="reveal">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Version index</span>
+          <h2 class="title">Releases <em>breakdown</em></h2>
+          <p class="sub">Pick any build — every file links straight to its GitHub release asset.</p>
+        </div>
+        <button class="btn-refresh" onclick="fetchData()" type="button">
           <i id="refresh-icon" class="fa-solid fa-arrows-rotate"></i> Refresh
         </button>
       </div>
 
-      <div id="releases-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Skeleton Loading Loader -->
-        <div class="col-span-full flex flex-col items-center justify-center py-24 text-white/30">
-          <i class="fa-solid fa-circle-notch animate-spin text-4xl mb-4 text-purple-500"></i>
-          <p class="text-sm font-medium tracking-wider uppercase">Loading stats database...</p>
+      <div id="releases-container">
+        <div class="loader">
+          <i class="fa-solid fa-circle-notch fa-spin"></i>
+          <p>Loading release index…</p>
         </div>
       </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="mt-16">
-      <div class="mb-10 text-left">
-        <h3 class="font-display text-xl sm:text-3xl font-extrabold tracking-tight flex items-center gap-3">
-          <i class="fa-solid fa-circle-question text-purple-400 text-lg sm:text-xl"></i>
-          Frequently Asked Questions
-        </h3>
-        <p class="text-white/40 text-xs sm:text-sm mt-2">Troubleshoot your installation and understand how BeatWave works.</p>
-      </div>
+    <!-- FAQ -->
+    <section class="reveal">
+      <span class="eyebrow">Good to know</span>
+      <h2 class="title">Frequently asked <em>questions</em></h2>
+      <p class="sub">Installation, permissions, and how the streaming features work.</p>
 
-      <div class="space-y-4">
-        <!-- Q1 -->
-        <div class="glass-card rounded-2xl overflow-hidden">
-          <button onclick="toggleFAQ(1)" class="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-white/[0.02] transition duration-300">
-            <span class="font-bold text-white/90 text-sm sm:text-base">Is the APK safe to install?</span>
-            <i id="faq-icon-1" class="fa-solid fa-plus text-purple-400 text-sm transition-transform duration-300"></i>
+      <div class="faq-list">
+        <article class="faq-card">
+          <button class="faq-head" onclick="toggleFAQ(this)" type="button">
+            <span>Is the APK safe to install?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
           </button>
-          <div id="faq-answer-1" class="hidden border-t border-white/5 p-6 bg-white/[0.01] text-xs sm:text-sm text-white/60 leading-relaxed">
-            Yes, absolutely. BeatWave is fully open-source and free of ads, tracking trackers, or telemetry SDKs. The app is offline-first, meaning your playback history, cached tracks, and library details remain strictly on your local device.
-          </div>
-        </div>
+          <div class="faq-body"><div class="faq-inner">
+            <p>Yes. BeatWave is fully open-source and free of ads, tracking, or telemetry SDKs. The app is offline-first — your playback history, cached tracks, and library stay strictly on your device.</p>
+          </div></div>
+        </article>
 
-        <!-- Q2 -->
-        <div class="glass-card rounded-2xl overflow-hidden">
-          <button onclick="toggleFAQ(2)" class="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-white/[0.02] transition duration-300">
-            <span class="font-bold text-white/90 text-sm sm:text-base">Why does BeatWave need Storage and Media permissions?</span>
-            <i id="faq-icon-2" class="fa-solid fa-plus text-purple-400 text-sm transition-transform duration-300"></i>
+        <article class="faq-card">
+          <button class="faq-head" onclick="toggleFAQ(this)" type="button">
+            <span>Why does BeatWave need Storage and Media permissions?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
           </button>
-          <div id="faq-answer-2" class="hidden border-t border-white/5 p-6 bg-white/[0.01] text-xs sm:text-sm text-white/60 leading-relaxed">
-            BeatWave requires read access to your device's storage (<code>READ_EXTERNAL_STORAGE</code> or <code>READ_MEDIA_AUDIO</code> on Android 13+) in order to scan and index your local audio files (MP3, FLAC, WAV, etc.) into the app library. We never access your photos, videos, or personal files.
-          </div>
-        </div>
+          <div class="faq-body"><div class="faq-inner">
+            <p>BeatWave needs read access to storage (<code>READ_EXTERNAL_STORAGE</code> or <code>READ_MEDIA_AUDIO</code> on Android 13+) to scan and index your local audio files — MP3, FLAC, WAV and more. It never touches your photos, videos, or personal files.</p>
+          </div></div>
+        </article>
 
-        <!-- Q3 -->
-        <div class="glass-card rounded-2xl overflow-hidden">
-          <button onclick="toggleFAQ(3)" class="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-white/[0.02] transition duration-300">
-            <span class="font-bold text-white/90 text-sm sm:text-base">What is 'Listen Together' mode?</span>
-            <i id="faq-icon-3" class="fa-solid fa-plus text-purple-400 text-sm transition-transform duration-300"></i>
+        <article class="faq-card">
+          <button class="faq-head" onclick="toggleFAQ(this)" type="button">
+            <span>What is "Listen Together" mode?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
           </button>
-          <div id="faq-answer-3" class="hidden border-t border-white/5 p-6 bg-white/[0.01] text-xs sm:text-sm text-white/60 leading-relaxed">
-            Listen Together is a feature that allows you to synchronize your music queue and playback controls in real-time with friends on the same Wi-Fi network. It utilizes Android's Network Service Discovery (mDNS) to link local instances peer-to-peer without sending queries through a cloud relay.
-          </div>
-        </div>
+          <div class="faq-body"><div class="faq-inner">
+            <p>Listen Together syncs your queue and playback controls in real time with friends on the same Wi-Fi network. It uses Android's Network Service Discovery (mDNS) to link instances peer-to-peer, so nothing is routed through a cloud relay.</p>
+          </div></div>
+        </article>
 
-        <!-- Q4 -->
-        <div class="glass-card rounded-2xl overflow-hidden">
-          <button onclick="toggleFAQ(4)" class="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-white/[0.02] transition duration-300">
-            <span class="font-bold text-white/90 text-sm sm:text-base">How do I install the APK file on my device?</span>
-            <i id="faq-icon-4" class="fa-solid fa-plus text-purple-400 text-sm transition-transform duration-300"></i>
+        <article class="faq-card">
+          <button class="faq-head" onclick="toggleFAQ(this)" type="button">
+            <span>How do I install the APK on my device?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
           </button>
-          <div id="faq-answer-4" class="hidden border-t border-white/5 p-6 bg-white/[0.01] text-xs sm:text-sm text-white/60 leading-relaxed">
-            Click the "Get APK" download button to fetch the file. Once downloaded, open it from your browser or file manager. If prompted, toggle "Allow installation from unknown sources" in your Android system security settings to complete the setup.
-          </div>
-        </div>
+          <div class="faq-body"><div class="faq-inner">
+            <p>Tap a download button to fetch the file, then open it from your browser or file manager. If Android asks, enable "Allow installation from unknown sources" in your security settings to finish the install.</p>
+          </div></div>
+        </article>
 
-        <!-- Q5 -->
-        <div class="glass-card rounded-2xl overflow-hidden">
-          <button onclick="toggleFAQ(5)" class="w-full text-left p-6 flex justify-between items-center gap-4 hover:bg-white/[0.02] transition duration-300">
-            <span class="font-bold text-white/90 text-sm sm:text-base">Does the player support Lossless Audio playback?</span>
-            <i id="faq-icon-5" class="fa-solid fa-plus text-purple-400 text-sm transition-transform duration-300"></i>
+        <article class="faq-card">
+          <button class="faq-head" onclick="toggleFAQ(this)" type="button">
+            <span>Does it support lossless audio playback?</span>
+            <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
           </button>
-          <div id="faq-answer-5" class="hidden border-t border-white/5 p-6 bg-white/[0.01] text-xs sm:text-sm text-white/60 leading-relaxed">
-            Yes! Powered by Jetpack Media3 core APIs, BeatWave natively parses and decodes lossless formats like FLAC and WAV alongside standard compressed files, guaranteeing full-fidelity playback.
-          </div>
-        </div>
+          <div class="faq-body"><div class="faq-inner">
+            <p>Yes. Built on Jetpack Media3 core APIs, BeatWave natively decodes lossless FLAC and WAV alongside standard compressed formats for full-fidelity playback.</p>
+          </div></div>
+        </article>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="mt-24 border-t border-white/5 pt-10 text-center text-xs text-white/35 flex flex-col sm:flex-row items-center justify-between gap-6">
-      <div class="flex flex-col items-center sm:items-start text-center sm:text-left">
-        <p class="mb-2">© 2026 BeatLabs. Styled in Liquid Obsidian Glass.</p>
-        <div class="flex justify-center sm:justify-start gap-4 text-[10px] uppercase font-bold tracking-wider text-purple-300/60">
-          <button onclick="openModal('privacy')" class="hover:text-purple-300 transition duration-200">Privacy Policy</button>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div>
+        <p class="foot-note" style="margin:0">Set in Instrument Serif &amp; Instrument Sans.</p>
+        <div class="footer-links">
+          <button onclick="openModal('privacy')" type="button">Privacy Policy</button>
           <span>•</span>
-          <button onclick="openModal('terms')" class="hover:text-purple-300 transition duration-200">Terms of Conditions</button>
+          <button onclick="openModal('terms')" type="button">Terms of Conditions</button>
         </div>
       </div>
-      
-      <!-- Make in India Badge Alignment -->
-      <div class="flex flex-col sm:flex-row items-center gap-6">
-        <div class="flex items-center gap-2 bg-white/[0.02] border border-white/5 rounded-xl px-4 py-2" title="Make in India">
-          <span class="text-[9px] font-bold uppercase tracking-widest text-white/40">Proudly Made In India</span>
-          <img src="Make_In_India.png" alt="Make in India Emblem" class="h-6 w-auto object-contain brightness-95 opacity-80" onerror="this.style.display='none'">
+
+      <div class="footer-right">
+        <div class="india" title="Make in India">
+          <span>Made in India</span>
+          <img src="Make_In_India.png" alt="Make in India emblem" onerror="this.style.display='none'">
         </div>
-        
-        <div class="flex items-center gap-5 text-base">
-          <a href="https://github.com/beatlabs790/BeatWave" target="_blank" class="hover:text-purple-400 transition duration-300"><i class="fa-brands fa-github"></i></a>
-          <a href="brutalism.html" class="text-[11px] font-bold uppercase tracking-widest bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition rounded-xl px-4 py-2 text-white/80 hover:text-white">Switch to Brutalism</a>
-        </div>
+        <a href="https://github.com/beatlabs790/BeatWave" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="brutalism.html" class="nav-switch">Switch to Brutalism</a>
       </div>
     </footer>
   </div>
 
-  <!-- Cookie Consent Banner -->
-  <div id="cookie-banner" class="fixed bottom-6 left-6 right-6 md:left-auto md:max-w-md z-50 transition duration-300 hidden">
-    <div class="cookie-container p-6">
-      <div class="flex flex-col gap-4">
-        <div class="flex items-start gap-3">
-          <span class="cookie-icon text-2xl select-none">🍪</span>
-          <div>
-            <h4 class="cookie-title font-bold text-sm text-white">Cookie Settings</h4>
-            <p class="cookie-text text-[11px] mt-1 leading-relaxed text-white/60">
-              We use local storage configurations to remember your preferences. No analytics tracking or advertising cookies are ever used.
-            </p>
-          </div>
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner" class="modal-overlay" hidden style="align-items:flex-end;justify-content:flex-end;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none">
+    <div class="cookie-container" style="width:min(430px,100%);z-index:71;position:relative">
+      <div class="cookie-row">
+        <span class="cookie-icon" aria-hidden="true">🍪</span>
+        <div>
+          <h4 class="cookie-title">Cookie settings</h4>
+          <p class="cookie-text">We use local storage to remember your preferences. No analytics or advertising cookies are used.</p>
         </div>
-        <div class="flex justify-end gap-3 mt-1">
-          <button onclick="declineCookies()" class="cookie-decline-btn text-xs font-semibold px-4 py-2 uppercase cursor-pointer">
-            Decline
-          </button>
-          <button onclick="acceptCookies()" class="cookie-accept-btn text-xs font-bold px-5 py-2 uppercase cursor-pointer">
-            Accept
-          </button>
-        </div>
+      </div>
+      <div class="cookie-actions">
+        <button class="btn-decline" onclick="declineCookies()" type="button">Decline</button>
+        <button class="btn-accept" onclick="acceptCookies()" type="button">Accept</button>
       </div>
     </div>
   </div>
 
   <!-- PRIVACY POLICY MODAL -->
-  <div id="privacy-modal" class="hidden fixed inset-0 bg-black/75 backdrop-blur-md z-50 flex items-center justify-center p-4 transition-all duration-300">
-    <div class="glass-panel max-w-2xl w-full max-h-[80vh] rounded-3xl p-8 relative flex flex-col shadow-2xl">
-      <button onclick="closeModal('privacy')" class="absolute top-6 right-6 text-white/40 hover:text-white transition duration-200 text-xl">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-      
-      <div class="mb-6">
-        <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-400">Legal Documents</span>
-        <h3 class="text-2xl sm:text-3xl font-extrabold font-display mt-1">Privacy Policy</h3>
-      </div>
-      
-      <div class="glass-scrollbar overflow-y-auto pr-2 text-sm text-white/70 space-y-4 leading-relaxed font-light">
-        <p class="font-semibold text-white/90">Last Updated: August 25, 2026</p>
-        <p>BeatWave is developed by BeatLabs. We believe that your privacy is a fundamental human right. Our application is built as an offline-first music workspace, meaning your library, cache, habits, and preferences stay exactly where they belong: on your local device.</p>
-        
-        <h4 class="font-semibold text-white/90 text-base mt-4 border-l-2 border-purple-500 pl-3">1. Data Storage & Portability</h4>
-        <p>All data generated or indexed inside BeatWave is saved locally utilizing SQLite/Room Database structures. There are zero accounts to configure and zero login identifiers. We do not maintain any cloud instances of your private library collections.</p>
-        
-        <h4 class="font-semibold text-white/90 text-base mt-4 border-l-2 border-purple-500 pl-3">2. Zero Telemetry Policy</h4>
-        <p>We do not include analytical engines, tracking SDKs (such as Firebase Analytics, Flurry, or Amplitude), or crash reporters that automatically upload log details. If the application crashes, the records remain strictly on device storage.</p>
-        
-        <h4 class="font-semibold text-white/90 text-base mt-4 border-l-2 border-purple-500 pl-3">3. External Connections & Integrations</h4>
-        <ul class="list-disc list-inside pl-2 space-y-1.5 font-mono text-[12px] text-purple-200">
-          <li><strong>Streaming Integration:</strong> When loading remote catalogs (such as YouTube Music streams), search requests are resolved directly through public endpoints. These queries fall under their respective terms and data collection rules.</li>
-          <li><strong>Listen Together:</strong> Syncing playback state with network nodes uses Network Service Discovery (mDNS). Playback actions (such as skip, play, seek) are cast peer-to-peer over the local network and never sent to cloud relays.</li>
+  <div id="privacy-modal" class="modal-overlay" hidden>
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('privacy')" type="button" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <span class="modal-kicker">Document 01</span>
+      <h3 class="modal-title">Privacy Policy</h3>
+
+      <div class="modal-body modal-scroll">
+        <p style="color:#fff;font-weight:600;margin:0">Last updated: August 25, 2026</p>
+        <p>BeatWave is developed by BeatLabs. Your library, cache, habits, and preferences are an offline-first workspace that stays exactly where it belongs — on your device.</p>
+
+        <h4>1. Data storage &amp; portability</h4>
+        <p>Everything generated or indexed inside BeatWave is saved locally using SQLite/Room. There are no accounts and no login identifiers, and we keep no cloud copies of your collections.</p>
+
+        <h4>2. Zero telemetry</h4>
+        <p>There are no analytics engines, tracking SDKs (Firebase Analytics, Flurry, Amplitude), or auto-uploading crash reporters. If the app crashes, records stay on device storage.</p>
+
+        <h4>3. External connections</h4>
+        <ul>
+          <li><strong>Streaming:</strong> remote catalog queries (e.g. YouTube Music) go directly to public endpoints under their own terms.</li>
+          <li><strong>Listen Together:</strong> sync uses Network Service Discovery (mDNS) peer-to-peer over your local network — never a cloud relay.</li>
         </ul>
 
-        <h4 class="font-semibold text-white/90 text-base mt-4 border-l-2 border-purple-500 pl-3">4. Necessary Device Permissions</h4>
-        <p>To run effectively on Android platforms, the application requires local file read permissions (MediaStore access) to map your offline audio files, and local network check capabilities to facilitate device casts. You are free to grant or deny these preferences in settings at any point.</p>
+        <h4>4. Device permissions</h4>
+        <p>BeatWave asks for local file read access (MediaStore) to map your offline audio, plus local network access for casting. You can grant or deny either at any time.</p>
       </div>
 
-      <div class="mt-6 pt-4 border-t border-white/5 flex justify-end">
-        <button onclick="closeModal('privacy')" class="px-5 py-2 bg-white/5 hover:bg-white/10 active:scale-95 border border-white/10 transition rounded-xl text-xs font-semibold">
-          Dismiss Policy
-        </button>
+      <div class="modal-foot">
+        <button onclick="closeModal('privacy')" type="button">I acknowledge</button>
       </div>
     </div>
   </div>
 
-  <!-- TERMS OF CONDITIONS MODAL -->
-  <div id="terms-modal" class="hidden fixed inset-0 bg-black/75 backdrop-blur-md z-50 flex items-center justify-center p-4 transition-all duration-300">
-    <div class="glass-panel max-w-2xl w-full max-h-[80vh] rounded-3xl p-8 relative flex flex-col shadow-2xl">
-      <button onclick="closeModal('terms')" class="absolute top-6 right-6 text-white/40 hover:text-white transition duration-200 text-xl">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-      
-      <div class="mb-6">
-        <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-400">Legal Documents</span>
-        <h3 class="text-2xl sm:text-3xl font-extrabold font-display mt-1">Terms of Conditions</h3>
-      </div>
-      
-      <div class="glass-scrollbar overflow-y-auto pr-2 text-sm text-white/70 space-y-4 leading-relaxed font-light">
-        <p class="font-semibold text-white/90">Last Updated: August 25, 2026</p>
-        <p>By downloading, building, or using the BeatWave application, you acknowledge and agree to be bound by the following conditions. If you do not accept these provisions, do not proceed with running this software.</p>
-        
-        <h4 class="font-semibold text-white/90 text-base mt-4 border-l-2 border-cyan-500 pl-3">1. Scope of Use</h4>
-        <p>BeatWave is an open-source media player utility. You are permitted to modify, build, and adapt the software codebase under the terms of its repository license. This software is authorized exclusively for individual, non-commercial entertainment purposes.</p>
-        
-        <h4 class="font-semibold text-white/90 text-base mt-4 border-l-2 border-cyan-500 pl-3">2. Content & Legality</h4>
-        <p>BeatWave acts as a modular shell player. We do not generate, host, cache, or distribute copyright-protected streaming streams. Users are strictly responsible for verifying that their streaming sources, local media files, and storage directories comply with copyright laws in their local jurisdiction.</p>
-        
-        <h4 class="font-semibold text-white/90 text-base mt-4 border-l-2 border-cyan-500 pl-3">3. Disclaimer of Warranty</h4>
-        <p class="font-mono text-[12px] text-cyan-300 uppercase leading-normal">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIMS, DAMAGES, SYSTEM LAGS, OR DATA DISRUPTIONS ARISING FROM THE INSTANCE OF SYSTEM RUNTIMES.</p>
-        
-        <h4 class="font-semibold text-white/90 text-base mt-4 border-l-2 border-cyan-500 pl-3">4. Intellectual Property</h4>
-        <p>The name "BeatWave", visual guidelines, logos, and custom "Liquid Glass" vector styles are the property of BeatLabs. Custom forks must modify all brand assets, package tags, and names prior to any distribution channels.</p>
+  <!-- TERMS MODAL -->
+  <div id="terms-modal" class="modal-overlay" hidden>
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('terms')" type="button" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <span class="modal-kicker">Document 02</span>
+      <h3 class="modal-title">Terms of Conditions</h3>
+
+      <div class="modal-body modal-scroll">
+        <p style="color:#fff;font-weight:600;margin:0">Last updated: August 25, 2026</p>
+        <p>By downloading, building, or using BeatWave you agree to the following conditions. If you do not accept them, do not run the software.</p>
+
+        <h4>1. Scope of use</h4>
+        <p>BeatWave is an open-source media player utility. You may modify, build, and adapt the codebase under its repository license. It is authorized for individual, non-commercial entertainment use.</p>
+
+        <h4>2. Content &amp; legality</h4>
+        <p>BeatWave is a player shell. We do not host or distribute copyright-protected streams. You are responsible for ensuring your sources and local media comply with the laws of your jurisdiction.</p>
+
+        <h4>3. Disclaimer of warranty</h4>
+        <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGE, OR OTHER LIABILITY ARISING FROM THE SOFTWARE.</p>
+
+        <h4>4. Intellectual property</h4>
+        <p>The name "BeatWave", its logos, and custom "Liquid Glass" vector styles belong to BeatLabs. Forks must replace all brand assets and package names before distribution.</p>
       </div>
 
-      <div class="mt-6 pt-4 border-t border-white/5 flex justify-end">
-        <button onclick="closeModal('terms')" class="px-5 py-2 bg-cyan-950/20 hover:bg-cyan-900/20 active:scale-95 border border-cyan-500/20 text-cyan-300 transition rounded-xl text-xs font-semibold">
-          Accept Conditions
-        </button>
+      <div class="modal-foot">
+        <button onclick="closeModal('terms')" type="button">I agree</button>
       </div>
     </div>
   </div>
@@ -504,64 +778,98 @@
       { tag: "V1.0", name: "BeatWave.Realease.1.apk", count: 40, date: "2026-04-05", url: "https://github.com/beatlabs790/BeatWave/releases/download/V1.0/BeatWave.Realease.1.apk" }
     ];
 
-    // Modal Control Functions
-    function openModal(id) {
-      document.getElementById(id + '-modal').classList.remove('hidden');
+    const REPO = "https://github.com/beatlabs790/BeatWave";
+
+    // ---- Modals -------------------------------------------------
+    function openModal(id){
+      document.getElementById(id + '-modal').hidden = false;
       document.body.style.overflow = 'hidden';
     }
-    
-    function closeModal(id) {
-      document.getElementById(id + '-modal').classList.add('hidden');
+    function closeModal(id){
+      document.getElementById(id + '-modal').hidden = true;
       document.body.style.overflow = '';
     }
-
-    // Close modal on clicking outside the content box
-    window.addEventListener('click', function(e) {
-      ['privacy-modal', 'terms-modal'].forEach(id => {
-        const modal = document.getElementById(id);
-        if (e.target === modal) {
-          closeModal(id.split('-')[0]);
-        }
+    window.addEventListener('click', function(e){
+      ['privacy-modal','terms-modal'].forEach(function(id){
+        var modal = document.getElementById(id);
+        if (e.target === modal) closeModal(id.split('-')[0]);
       });
     });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape'){ closeModal('privacy'); closeModal('terms'); }
+    });
 
-    // Copy UPI ID function
-    function copyUPI() {
-      const upiText = "akshanshsinha67@axl";
-      navigator.clipboard.writeText(upiText).then(() => {
-        const copyTextEl = document.getElementById('copy-text');
-        const copyIconEl = document.getElementById('copy-icon');
-        
-        copyTextEl.innerText = "Copied!";
-        copyIconEl.className = "fa-solid fa-check text-emerald-400";
-        
-        setTimeout(() => {
-          copyTextEl.innerText = "Copy";
-          copyIconEl.className = "fa-regular fa-copy";
+    // ---- UPI copy ----------------------------------------------
+    function copyUPI(){
+      navigator.clipboard.writeText("akshanshsinha67@axl").then(function(){
+        var textEl = document.getElementById('copy-text');
+        var iconEl = document.getElementById('copy-icon');
+        textEl.innerText = "Copied!";
+        iconEl.className = "fa-solid fa-check";
+        setTimeout(function(){
+          textEl.innerText = "Copy";
+          iconEl.className = "fa-regular fa-copy";
         }, 2000);
-      }).catch(err => {
-        console.error("Failed to copy text: ", err);
-      });
+      }).catch(function(err){ console.error("Copy failed:", err); });
     }
 
-    async function fetchData() {
-      const refreshIcon = document.getElementById('refresh-icon');
-      const statusText = document.getElementById('api-status');
-      if (refreshIcon) refreshIcon.classList.add('animate-spin');
-      if (statusText) statusText.innerText = "Querying GitHub API...";
+    // ---- FAQ ----------------------------------------------------
+    function toggleFAQ(btn){
+      var card = btn.closest('.faq-card');
+      if (card) card.classList.toggle('open');
+    }
+
+    // ---- Cookie consent ----------------------------------------
+    function checkCookieConsent(){
+      if (!localStorage.getItem('cookie-consent')){
+        document.getElementById('cookie-banner').hidden = false;
+      }
+    }
+    function acceptCookies(){
+      localStorage.setItem('cookie-consent','accepted');
+      document.getElementById('cookie-banner').hidden = true;
+    }
+    function declineCookies(){
+      localStorage.setItem('cookie-consent','declined');
+      document.getElementById('cookie-banner').hidden = true;
+    }
+
+    // ---- Waveform signature ------------------------------------
+    function buildWaveform(){
+      var wf = document.getElementById('waveform');
+      if (!wf) return;
+      var bars = 46;
+      for (var i = 0; i < bars; i++){
+        var b = document.createElement('i');
+        var h = 16 + Math.abs(Math.sin(i * 1.7)) * 70 + Math.random() * 14;
+        b.style.height = Math.max(12, Math.min(100, h)) + '%';
+        b.style.animationDelay = (i * 0.045) + 's';
+        b.style.animationDuration = (0.85 + Math.random() * 0.75) + 's';
+        wf.appendChild(b);
+      }
+    }
+
+    // ---- Data ---------------------------------------------------
+    async function fetchData(){
+      var refreshIcon = document.getElementById('refresh-icon');
+      var statusText = document.getElementById('api-status');
+      var indicator = document.getElementById('indicator');
+
+      if (refreshIcon) refreshIcon.classList.add('fa-spin');
+      if (statusText) statusText.innerText = "Querying GitHub…";
+      if (indicator) indicator.className = "dot";
 
       try {
-        const response = await fetch('https://api.github.com/repos/beatlabs790/BeatWave/releases');
+        var response = await fetch('https://api.github.com/repos/beatlabs790/BeatWave/releases');
         if (!response.ok) throw new Error('API request limited or failed');
-        
-        const data = await response.json();
-        const parsedReleases = [];
 
-        data.forEach(release => {
-          if (release.assets && release.assets.length > 0) {
-            release.assets.forEach(asset => {
-              if (asset.name.endsWith('.apk')) {
-                parsedReleases.push({
+        var data = await response.json();
+        var parsed = [];
+        data.forEach(function(release){
+          if (release.assets && release.assets.length){
+            release.assets.forEach(function(asset){
+              if (asset.name.endsWith('.apk')){
+                parsed.push({
                   tag: release.tag_name,
                   name: asset.name,
                   count: asset.download_count,
@@ -572,148 +880,112 @@
             });
           }
         });
+        if (parsed.length === 0) throw new Error('No assets found');
 
-        if (parsedReleases.length === 0) throw new Error('No assets found');
-        
-        statusText.innerHTML = `<span class="text-cyan-400"><i class="fa-solid fa-circle-check mr-1.5"></i> Live Stats Synced</span>`;
-        renderData(parsedReleases);
-      } catch (err) {
+        if (statusText) statusText.innerText = "Live data synchronized";
+        if (indicator) indicator.className = "dot ok";
+        renderData(parsed);
+      } catch (err){
         console.warn('GitHub API failed, loading local snapshot.', err);
-        statusText.innerHTML = `<span class="text-purple-400/80"><i class="fa-solid fa-triangle-exclamation mr-1.5"></i> Offline Local Snapshot</span>`;
+        if (statusText) statusText.innerText = "Offline local snapshot";
+        if (indicator) indicator.className = "dot warn";
         renderData(fallbackData);
       } finally {
-        if (refreshIcon) refreshIcon.classList.remove('animate-spin');
+        if (refreshIcon) refreshIcon.classList.remove('fa-spin');
       }
     }
 
-    function renderData(items) {
-      const container = document.getElementById('releases-container');
-      const totalCountEl = document.getElementById('total-count');
-      const heroBtn = document.getElementById('hero-download-btn');
-      
+    function formatDate(dateStr){
+      return new Date(dateStr).toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' });
+    }
+
+    function renderData(items){
+      var container = document.getElementById('releases-container');
+      var totalCountEl = document.getElementById('total-count');
       container.innerHTML = '';
-      let totalDownloads = 0;
 
-      // Render items
-      items.forEach((item, index) => {
-        totalDownloads += item.count;
-        
-        const card = document.createElement('div');
-        card.className = 'glass-card rounded-2xl p-6 flex flex-col justify-between gap-5 relative overflow-hidden group';
-        card.style.animationDelay = `${index * 40}ms`;
-        
-        const formattedDate = new Date(item.date).toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric'
-        });
+      var total = 0;
+      items.forEach(function(item, index){
+        total += item.count;
 
-        card.innerHTML = `
-          <!-- Shimmer Sweep Hover Effect -->
-          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out pointer-events-none"></div>
-          
-          <div>
-            <div class="flex items-center justify-between mb-3.5">
-              <span class="text-xs font-extrabold font-display bg-purple-500/10 text-purple-300 border border-purple-500/20 rounded-lg px-3 py-1">
-                ${item.tag}
-              </span>
-              <span class="text-xs text-white/40 font-semibold tracking-wide font-display">
-                <i class="fa-regular fa-calendar-days mr-1.5 text-purple-400/70"></i> ${formattedDate}
-              </span>
-            </div>
-            <h4 class="font-bold text-white/90 text-sm tracking-wide truncate group-hover:text-purple-300 transition-colors" title="${item.name}">
-              ${item.name}
-            </h4>
-          </div>
-          
-          <div class="flex items-end justify-between mt-1 pt-4 border-t border-white/5">
-            <div class="flex flex-col">
-              <span class="text-[9px] uppercase font-bold tracking-[0.15em] text-white/30">Downloads</span>
-              <div class="flex items-baseline gap-1 mt-0.5">
-                <span class="font-display text-2xl font-black text-white group-hover:text-cyan-300 transition-colors duration-300">${item.count.toLocaleString()}</span>
-                <span class="text-[10px] text-cyan-400 font-bold uppercase tracking-wide">APKs</span>
-              </div>
-            </div>
-            
-            <a href="${item.url || 'https://github.com/beatlabs790/BeatWave/releases/tag/' + item.tag}" target="_blank" 
-               class="bg-white/5 hover:bg-gradient-to-r hover:from-purple-600 hover:to-indigo-600 active:scale-95 border border-white/10 hover:border-purple-400/40 text-white/80 hover:text-white transition duration-300 rounded-xl px-4 py-2.5 text-xs font-semibold flex items-center justify-center gap-1.5">
-              <i class="fa-solid fa-download"></i> Get APK
-            </a>
-          </div>
-        `;
-        
+        var card = document.createElement('article');
+        card.className = 'release-card';
+        card.style.setProperty('--d', (index * 38) + 'ms');
+
+        card.innerHTML =
+          '<div class="rc-top">' +
+            '<span class="rc-tag">' + item.tag + '</span>' +
+            '<span class="rc-date"><i class="fa-regular fa-calendar-days"></i> ' + formatDate(item.date) + '</span>' +
+          '</div>' +
+          '<h3 class="rc-name" title="' + item.name + '">' + item.name + '</h3>' +
+          '<div class="rc-bottom">' +
+            '<div>' +
+              '<span class="rc-label">Downloads</span>' +
+              '<span class="rc-num">' + item.count.toLocaleString() + '<em class="rc-unit">APKs</em></span>' +
+            '</div>' +
+            '<a class="btn-mini" href="' + (item.url || (REPO + '/releases/tag/' + item.tag)) + '" target="_blank" rel="noopener">' +
+              '<i class="fa-solid fa-download"></i> Get APK' +
+            '</a>' +
+          '</div>';
+
         container.appendChild(card);
       });
 
-      // Bind the latest version info dynamically to the prominent hero download button
-      const latest = items[0];
-      if (heroBtn && latest) {
-        heroBtn.href = latest.url;
-        heroBtn.innerHTML = `<i class="fa-solid fa-download text-lg"></i> Download Latest (${latest.tag})`;
-      }
+      // Secondary stats
+      var statReleases = document.getElementById('stat-releases');
+      var statLatest = document.getElementById('stat-latest');
+      var heroTag = document.getElementById('hero-tag');
+      if (statReleases) statReleases.innerText = items.length.toLocaleString();
+      if (statLatest && items[0]) statLatest.innerText = items[0].tag;
+      if (heroTag && items[0]) heroTag.innerText = items[0].tag;
 
-      // Animate total counter
-      animateCounter(totalCountEl, totalDownloads);
+      // Hero button target
+      var heroBtn = document.getElementById('hero-download-btn');
+      if (heroBtn && items[0] && items[0].url) heroBtn.href = items[0].url;
+
+      animateCounter(totalCountEl, total);
     }
 
-    function animateCounter(element, target) {
-      let start = 0;
-      const duration = 1200; // ms
-      const startTime = performance.now();
-
-      function update(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const ease = progress * (2 - progress); // outQuad
-        const currentVal = Math.floor(ease * target);
-        element.innerText = currentVal.toLocaleString();
-
-        if (progress < 1) {
-          requestAnimationFrame(update);
-        } else {
-          element.innerText = target.toLocaleString();
-        }
+    function animateCounter(element, target){
+      if (!element) return;
+      var finalText = target.toLocaleString();
+      // requestAnimationFrame is paused in background tabs, so show the final
+      // value immediately rather than leaving the counter stuck at zero.
+      if (document.visibilityState === 'hidden'){
+        element.innerText = finalText;
+        return;
       }
-      
+      var duration = 1200;
+      var startTime = performance.now();
+      function update(now){
+        var progress = Math.min((now - startTime) / duration, 1);
+        var ease = progress * (2 - progress);
+        element.innerText = Math.floor(ease * target).toLocaleString();
+        if (progress < 1) requestAnimationFrame(update);
+        else element.innerText = finalText;
+      }
       requestAnimationFrame(update);
     }
 
-    // FAQ Toggle Function
-    function toggleFAQ(num) {
-      const answer = document.getElementById(`faq-answer-${num}`);
-      const icon = document.getElementById(`faq-icon-${num}`);
-      if (answer && icon) {
-        const isHidden = answer.classList.contains('hidden');
-        if (isHidden) {
-          answer.classList.remove('hidden');
-          icon.className = "fa-solid fa-minus text-cyan-400 text-sm transition-transform duration-300 rotate-180";
-        } else {
-          answer.classList.add('hidden');
-          icon.className = "fa-solid fa-plus text-purple-400 text-sm transition-transform duration-300";
-        }
+    // ---- Entrance reveal ---------------------------------------
+    function initReveal(){
+      var els = document.querySelectorAll('.reveal');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce || !('IntersectionObserver' in window)){
+        els.forEach(function(el){ el.classList.add('in'); });
+        return;
       }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function(el){ io.observe(el); });
     }
 
-    // Cookie Consent Handlers
-    function checkCookieConsent() {
-      const consent = localStorage.getItem('cookie-consent');
-      if (!consent) {
-        document.getElementById('cookie-banner').classList.remove('hidden');
-      }
-    }
-
-    function acceptCookies() {
-      localStorage.setItem('cookie-consent', 'accepted');
-      document.getElementById('cookie-banner').classList.add('hidden');
-    }
-
-    function declineCookies() {
-      localStorage.setItem('cookie-consent', 'declined');
-      document.getElementById('cookie-banner').classList.add('hidden');
-    }
-
-    // Initial fetch on load
-    window.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('DOMContentLoaded', function(){
+      buildWaveform();
+      initReveal();
       checkCookieConsent();
       fetchData();
     });
